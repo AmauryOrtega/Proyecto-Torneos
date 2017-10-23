@@ -1,0 +1,53 @@
+texto = """Ericka  
+Ezra  
+Ardith  
+Hye  
+Laronda  
+Kera  
+Oretha  
+Roxanna  
+Emelia  
+Jennefer  
+Luther  
+Kandy  
+Dinorah  
+Richard  
+Anissa  
+Torrie  
+Jane  
+Sharita  
+Nedra  
+Cheryll  
+Nellie  
+Kenton  
+Zachery  
+Fernanda  
+Leanne  
+Otha  
+Mimi  
+Wyatt  
+Nicki  
+Pamila  
+Corliss  
+Elin  
+Raina  
+Melania  
+Twana  
+Emiko  
+Courtney  
+Sulema  
+Benita  
+Larissa  
+Brandie  
+Johana  
+Carman  
+Majorie  
+Judith  
+Araceli  
+Ollie  
+Tabetha  
+Robt  
+Josefine"""
+with open('jugadores.csv', 'w') as archivo:
+    for jugador in texto:
+        archivo.write(jugador)
