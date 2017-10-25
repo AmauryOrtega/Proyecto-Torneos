@@ -176,6 +176,8 @@ public class Torneo {
                 lista.add(partido.getPerdedor());
             }
         }
+        // No puede volver a jugar el que quedo de segundo
+        lista.remove(this.getPartidosActuales().get(0).getPerdedor());
         return lista;
     }
 
