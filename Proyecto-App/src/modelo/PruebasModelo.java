@@ -1,4 +1,4 @@
-package backend;
+package modelo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class PruebasModelo {
 
     public static void main(String[] args) {
         Torneo torneo = new Torneo(persistencia());
