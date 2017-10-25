@@ -9,21 +9,15 @@ import java.util.Scanner;
 public class PruebasModelo {
 
     public static void main(String[] args) {
+        // Torneo principal
         Torneo torneo = new Torneo(persistencia());
-        System.out.println("");
-        System.out.println("Jugadores [" + torneo.getJugadores_bak().size() + "]");
+        System.out.println("\nJugadores [" + torneo.getJugadores_bak().size() + "]");
         System.out.println(torneo.getJugadores_bak());
-        
-        System.out.println("");
-        System.out.println("Extras [" + torneo.getExtras().size() + "]");
+
+        System.out.println("\nExtras [" + torneo.getExtras().size() + "]");
         System.out.println(torneo.getExtras());
-        
-//        System.out.println("");
-//        System.out.println("Antes de jugar Ronda 0");
-//        torneo.getPartidosActuales().forEach(System.out::println);
-        
-        System.out.println("");
-        System.out.println("Simulando partidos");
+
+        System.out.println("\nSimulando partidos");
         for (Partido partido : torneo.getPartidosActuales()) {
             Random r = new Random();
             if (r.nextBoolean()) {
@@ -32,15 +26,73 @@ public class PruebasModelo {
                 partido.setGanador(partido.getJugadorB());
             }
         }
-        
-        System.out.println("");
-        System.out.println("Jugaron");
+
+        System.out.println("\nJugaron");
         torneo.getPartidosActuales().forEach(System.out::println);
-        
-        System.out.println("");
-        System.out.println("Generando partidos de siguiente ronda");
-        torneo.siguienteRonda();
-        torneo.getPartidosActuales().forEach(System.out::println);
+
+        do {
+            System.out.println("\nGenerando y simulando siguientes rondas");
+            torneo.siguienteRonda();
+            for (Partido partido : torneo.getPartidosActuales()) {
+                Random r = new Random();
+                if (r.nextBoolean()) {
+                    partido.setGanador(partido.getJugadorA());
+                } else {
+                    partido.setGanador(partido.getJugadorB());
+                }
+            }
+            torneo.getPartidosActuales().forEach(System.out::println);
+        } while (torneo.getGanador() == null);
+
+        System.out.println("\nGanador");
+        System.out.println(torneo.getGanador());
+        // Fin torneo principal
+
+        // Torneo terceristas
+        System.out.println("\nTerceristas [" + torneo.getTerceristas().size() + "]");
+        System.out.println(torneo.getTerceristas());
+        torneo.iniciarMiniTorneo();
+
+        System.out.println("\nTerceristas Extras [" + torneo.getMini_torneo().getExtras_bak().size() + "]");
+        System.out.println(torneo.getMini_torneo().getExtras_bak());
+
+        System.out.println("\nSimulando partidos de terceristas");
+        for (Partido partido : torneo.getMini_torneo().getPartidosActuales()) {
+            Random r = new Random();
+            if (r.nextBoolean()) {
+                partido.setGanador(partido.getJugadorA());
+            } else {
+                partido.setGanador(partido.getJugadorB());
+            }
+        }
+
+        System.out.println("\nJugaron");
+        torneo.getMini_torneo().getPartidosActuales().forEach(System.out::println);
+
+        do {
+            System.out.println("\nGenerando y simulando siguientes rondas");
+            torneo.getMini_torneo().siguienteRonda();
+            for (Partido partido : torneo.getMini_torneo().getPartidosActuales()) {
+                Random r = new Random();
+                if (r.nextBoolean()) {
+                    partido.setGanador(partido.getJugadorA());
+                } else {
+                    partido.setGanador(partido.getJugadorB());
+                }
+            }
+            torneo.getMini_torneo().getPartidosActuales().forEach(System.out::println);
+        } while (torneo.getMini_torneo().getGanador() == null);
+
+        System.out.println("\nGanador Terceristas");
+        System.out.println(torneo.getMini_torneo().getGanador());
+        // Fin Torneo terceristas
+
+        // Final
+        System.out.println("\nGANADORES");
+        ArrayList<Jugador> ganadores = torneo.getGanadores();
+        for (int i = 0; i < 3; i++) {
+            System.out.println((i + 1) + ". " + ganadores.get(i));
+        }
     }
 
     public static ArrayList<Jugador> persistencia() {

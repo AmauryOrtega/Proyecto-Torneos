@@ -65,13 +65,24 @@ public class Partido {
     }
 
     public Jugador getGanador() {
-        switch (ganador) {
+        switch (this.ganador) {
             case -1:
                 return null;
             case 0:
                 return jugadorA;
             default:
                 return jugadorB;
+        }
+    }
+
+    public Jugador getPerdedor() {
+        switch (this.ganador) {
+            case -1:
+                return null;
+            case 0:
+                return jugadorB;
+            default:
+                return jugadorA;
         }
     }
 
@@ -87,6 +98,5 @@ public class Partido {
     public String toString() {
         return "Partido#" + this.id + "{[" + ronda + "]" + jugadorA + "(" + puntajeA + ") - " + jugadorB + "(" + puntajeB + ")" + " => " + this.getGanador() + '}';
     }
-    
-    
+
 }
