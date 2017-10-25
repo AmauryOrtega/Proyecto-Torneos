@@ -1,4 +1,4 @@
-package backend;
+package modelo;
 
 public class Partido {
 
