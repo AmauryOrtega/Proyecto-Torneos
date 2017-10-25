@@ -10,8 +10,5 @@ def byes(x):
       i+=1
     return 2**i-x
 
-# n lista de posibles # de equipos
-n = list(range(2, 120))
-print("# de Equipos", "# de Byes")
-for num in n:
-  print(str(num) + "\t" + str(byes(num)))
+for num_equipos in range(2, 120):
+  print(num_equipos, byes(num_equipos))
