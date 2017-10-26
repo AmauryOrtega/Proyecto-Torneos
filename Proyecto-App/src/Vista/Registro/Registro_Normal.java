@@ -299,6 +299,14 @@ public class Registro_Normal extends javax.swing.JFrame {
 
     private void JB_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_RegistrarActionPerformed
         // Usar controlador
+//        JTF_Nombres
+//        JTF_Apellidos
+//        JTF_Edad
+//        JTF_NumeroIdentificacion + JCB_Identificacion
+//        JCB_Cinturon
+//        JCB_Sexo
+//        JTF_Peso
+//        JTF_Estatura
     }//GEN-LAST:event_JB_RegistrarActionPerformed
     /**
      * @param args the command line arguments
