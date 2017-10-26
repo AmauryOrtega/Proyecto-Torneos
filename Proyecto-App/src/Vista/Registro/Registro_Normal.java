@@ -176,6 +176,11 @@ public class Registro_Normal extends javax.swing.JFrame {
         );
 
         JB_Registrar.setText("Registrar");
+        JB_Registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_RegistrarActionPerformed(evt);
+            }
+        });
 
         JB_Cancelar.setText("Cancelar");
 
@@ -291,6 +296,10 @@ public class Registro_Normal extends javax.swing.JFrame {
 //            JL_Foto.setIcon(imagen);
 //        }
     }//GEN-LAST:event_JB_Cargar_FotoActionPerformed
+
+    private void JB_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_RegistrarActionPerformed
+        // Usar controlador
+    }//GEN-LAST:event_JB_RegistrarActionPerformed
     /**
      * @param args the command line arguments
      */

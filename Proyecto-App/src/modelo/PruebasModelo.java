@@ -111,7 +111,7 @@ public class PruebasModelo {
             System.err.println("[ERROR] No se encuentra el archivo jugadores.csv");;
         }
         for (String nombre : lista) {
-            jugadores.add(new Jugador(nombre));
+            jugadores.add(new Jugador(nombre, "0"));
         }
         return jugadores;
     }
