@@ -5,6 +5,10 @@
 [Byes](https://www.printyourbrackets.com/how-byes-work-in-a-tournament.html).
 [Ejemplos](https://www.printyourbrackets.com/seededbrackets.html).
 
+## Correcciones
+
+Un torneo tendra 2 mini torneos, los que perdieron contra el segundo y los que perdieron contra el primero. Asi habran 2 personas en tercer puesto.
+
 ## Ideas
 
 ### Gestionar jugadores, equipos y torneos por apps
