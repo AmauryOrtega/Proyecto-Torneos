@@ -48,8 +48,6 @@ public class Kumite extends javax.swing.JFrame {
         JB_Start = new javax.swing.JButton();
         JL_PuntajeAzul = new javax.swing.JLabel();
         JL_PuntajeRojo = new javax.swing.JLabel();
-        JL_Ao = new javax.swing.JLabel();
-        JL_Aka = new javax.swing.JLabel();
         JB_IpponRojo = new javax.swing.JButton();
         JB_WazaAriRojo = new javax.swing.JButton();
         JB_YukoRojo = new javax.swing.JButton();
@@ -58,7 +56,6 @@ public class Kumite extends javax.swing.JFrame {
         JB_WazaAriAzul = new javax.swing.JButton();
         JB_YukoAzul = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        JB_KOTimer = new javax.swing.JButton();
         JL_Tiempo = new javax.swing.JLabel();
         JCB_SenshuAzul = new javax.swing.JCheckBox();
         JCB_SenshuRojo = new javax.swing.JCheckBox();
@@ -92,6 +89,8 @@ public class Kumite extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jCheckBox17 = new javax.swing.JCheckBox();
+        jCheckBox18 = new javax.swing.JCheckBox();
         JL_Fondo = new javax.swing.JLabel();
         JMB_BarraTareas = new javax.swing.JMenuBar();
         JM_Menu = new javax.swing.JMenu();
@@ -231,7 +230,7 @@ public class Kumite extends javax.swing.JFrame {
         );
 
         getContentPane().add(JP_Close);
-        JP_Close.setBounds(690, 440, 178, 63);
+        JP_Close.setBounds(690, 430, 178, 63);
 
         JP_FieldNumber.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Field Number"));
 
@@ -283,13 +282,13 @@ public class Kumite extends javax.swing.JFrame {
         );
 
         getContentPane().add(JP_Setup);
-        JP_Setup.setBounds(690, 380, 178, 57);
+        JP_Setup.setBounds(690, 370, 178, 57);
 
         JB_Start.setBackground(new java.awt.Color(153, 255, 102));
         JB_Start.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB_Start.setText("Start");
         getContentPane().add(JB_Start);
-        JB_Start.setBounds(280, 40, 150, 60);
+        JB_Start.setBounds(280, 60, 150, 60);
 
         JL_PuntajeAzul.setFont(new java.awt.Font("Unispace", 1, 48)); // NOI18N
         JL_PuntajeAzul.setForeground(new java.awt.Color(255, 255, 255));
@@ -305,35 +304,21 @@ public class Kumite extends javax.swing.JFrame {
         getContentPane().add(JL_PuntajeRojo);
         JL_PuntajeRojo.setBounds(380, 270, 40, 50);
 
-        JL_Ao.setFont(new java.awt.Font("Unispace", 1, 48)); // NOI18N
-        JL_Ao.setForeground(new java.awt.Color(255, 255, 255));
-        JL_Ao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JL_Ao.setText("Ao");
-        getContentPane().add(JL_Ao);
-        JL_Ao.setBounds(70, 50, 60, 50);
-
-        JL_Aka.setFont(new java.awt.Font("Unispace", 1, 48)); // NOI18N
-        JL_Aka.setForeground(new java.awt.Color(255, 255, 255));
-        JL_Aka.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JL_Aka.setText("Aka");
-        getContentPane().add(JL_Aka);
-        JL_Aka.setBounds(540, 50, 90, 60);
-
         JB_IpponRojo.setText("Ippon");
         getContentPane().add(JB_IpponRojo);
-        JB_IpponRojo.setBounds(520, 110, 130, 30);
+        JB_IpponRojo.setBounds(520, 50, 130, 30);
 
         JB_WazaAriRojo.setText("Waza-ari");
         getContentPane().add(JB_WazaAriRojo);
-        JB_WazaAriRojo.setBounds(520, 150, 130, 30);
+        JB_WazaAriRojo.setBounds(520, 100, 130, 30);
 
         JB_YukoRojo.setText("Yuko");
         getContentPane().add(JB_YukoRojo);
-        JB_YukoRojo.setBounds(520, 190, 130, 30);
+        JB_YukoRojo.setBounds(520, 150, 130, 30);
 
         JB_IpponAzul.setText("Ippon");
         getContentPane().add(JB_IpponAzul);
-        JB_IpponAzul.setBounds(40, 110, 130, 30);
+        JB_IpponAzul.setBounds(40, 50, 130, 30);
 
         jLabel1.setFont(new java.awt.Font("Unispace", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -348,21 +333,17 @@ public class Kumite extends javax.swing.JFrame {
             }
         });
         getContentPane().add(JB_WazaAriAzul);
-        JB_WazaAriAzul.setBounds(40, 150, 130, 30);
+        JB_WazaAriAzul.setBounds(40, 100, 130, 30);
 
         JB_YukoAzul.setText("Yuko");
         getContentPane().add(JB_YukoAzul);
-        JB_YukoAzul.setBounds(40, 190, 130, 30);
+        JB_YukoAzul.setBounds(40, 150, 130, 30);
 
         jLabel4.setFont(new java.awt.Font("Unispace", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Category 1");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(270, 370, 170, 29);
-
-        JB_KOTimer.setText("KO Timer");
-        getContentPane().add(JB_KOTimer);
-        JB_KOTimer.setBounds(290, 110, 130, 30);
 
         JL_Tiempo.setFont(new java.awt.Font("Unispace", 1, 48)); // NOI18N
         JL_Tiempo.setText("1:30");
@@ -372,12 +353,12 @@ public class Kumite extends javax.swing.JFrame {
         JCB_SenshuAzul.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
         JCB_SenshuAzul.setText("Senshu");
         getContentPane().add(JCB_SenshuAzul);
-        JCB_SenshuAzul.setBounds(40, 240, 95, 31);
+        JCB_SenshuAzul.setBounds(40, 200, 100, 31);
 
         JCB_SenshuRojo.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
         JCB_SenshuRojo.setText("Senshu");
         getContentPane().add(JCB_SenshuRojo);
-        JCB_SenshuRojo.setBounds(550, 240, 95, 31);
+        JCB_SenshuRojo.setBounds(550, 200, 95, 31);
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -561,11 +542,21 @@ public class Kumite extends javax.swing.JFrame {
 
         jButton1.setText("-1");
         getContentPane().add(jButton1);
-        jButton1.setBounds(60, 290, 45, 25);
+        jButton1.setBounds(180, 280, 45, 25);
 
         jButton2.setText("-1");
         getContentPane().add(jButton2);
-        jButton2.setBounds(520, 290, 45, 25);
+        jButton2.setBounds(470, 280, 45, 25);
+
+        jCheckBox17.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
+        jCheckBox17.setText("Kiken");
+        getContentPane().add(jCheckBox17);
+        jCheckBox17.setBounds(560, 250, 83, 31);
+
+        jCheckBox18.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
+        jCheckBox18.setText("Kiken");
+        getContentPane().add(jCheckBox18);
+        jCheckBox18.setBounds(40, 250, 83, 31);
 
         JL_Fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKumite/Fondo.png"))); // NOI18N
@@ -658,7 +649,6 @@ public class Kumite extends javax.swing.JFrame {
     private javax.swing.JButton JB_ExtraTime;
     private javax.swing.JButton JB_IpponAzul;
     private javax.swing.JButton JB_IpponRojo;
-    private javax.swing.JButton JB_KOTimer;
     private javax.swing.JButton JB_ResetMatch;
     private javax.swing.JButton JB_ResetTime;
     private javax.swing.JButton JB_SetFieldNumber;
@@ -670,8 +660,6 @@ public class Kumite extends javax.swing.JFrame {
     private javax.swing.JButton JB_YukoRojo;
     private javax.swing.JCheckBox JCB_SenshuAzul;
     private javax.swing.JCheckBox JCB_SenshuRojo;
-    private javax.swing.JLabel JL_Aka;
-    private javax.swing.JLabel JL_Ao;
     private javax.swing.JLabel JL_Fondo;
     private javax.swing.JLabel JL_PuntajeAzul;
     private javax.swing.JLabel JL_PuntajeRojo;
@@ -706,6 +694,8 @@ public class Kumite extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox14;
     private javax.swing.JCheckBox jCheckBox15;
     private javax.swing.JCheckBox jCheckBox16;
+    private javax.swing.JCheckBox jCheckBox17;
+    private javax.swing.JCheckBox jCheckBox18;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
