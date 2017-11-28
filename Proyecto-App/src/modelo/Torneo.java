@@ -7,9 +7,9 @@ public class Torneo {
 
     private Integer estado;
     private ArrayList<Jugador> jugadores;
-    private ArrayList<Jugador> jugadores_bak;
+    private final ArrayList<Jugador> jugadores_bak;
     private ArrayList<Jugador> extras;
-    private ArrayList<Jugador> extras_bak;
+    private final ArrayList<Jugador> extras_bak;
     private ArrayList<Partido> partidos;
     private Torneo mini_torneo;
 
@@ -88,9 +88,6 @@ public class Torneo {
         return extras_bak;
     }
 
-    public void setExtras_bak(ArrayList<Jugador> extras_bak) {
-        this.extras_bak = extras_bak;
-    }
 
     public Torneo getMini_torneo() {
         return mini_torneo;
@@ -176,6 +173,8 @@ public class Torneo {
                 lista.add(partido.getPerdedor());
             }
         }
+        // No puede volver a jugar el que quedo de segundo
+        lista.remove(this.getPartidosActuales().get(0).getPerdedor());
         return lista;
     }
 
