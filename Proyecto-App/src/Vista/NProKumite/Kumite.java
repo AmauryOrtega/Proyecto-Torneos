@@ -779,7 +779,7 @@ public class Kumite extends javax.swing.JDialog {
 
     private void JCB_HanteiC1AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC1AzulActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Ganador Rojo");
+        JOptionPane.showMessageDialog(this, "Ganador Rojo");
         partido.setGanador(partido.getJugadorB());
         this.dispose();
 
@@ -787,21 +787,21 @@ public class Kumite extends javax.swing.JDialog {
 
     private void JCB_HanteiC1RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC1RojoActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Ganador Azul");
+        JOptionPane.showMessageDialog(this, "Ganador Azul");
         partido.setGanador(partido.getJugadorA());
         this.dispose();
     }//GEN-LAST:event_JCB_HanteiC1RojoActionPerformed
 
     private void JCB_HanteiC2AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC2AzulActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Ganador Rojo");
+        JOptionPane.showMessageDialog(this, "Ganador Rojo");
         partido.setGanador(partido.getJugadorB());
         this.dispose();
     }//GEN-LAST:event_JCB_HanteiC2AzulActionPerformed
 
     private void JCB_HanteiC2RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC2RojoActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Ganador Azul");
+        JOptionPane.showMessageDialog(this, "Ganador Azul");
         partido.setGanador(partido.getJugadorA());
         this.dispose();
     }//GEN-LAST:event_JCB_HanteiC2RojoActionPerformed
@@ -817,13 +817,13 @@ public class Kumite extends javax.swing.JDialog {
 
     private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Ganador Rojo");
+        JOptionPane.showMessageDialog(this, "Ganador Rojo");
         partido.setGanador(partido.getJugadorB());
     }//GEN-LAST:event_jCheckBox17ActionPerformed
 
     private void jCheckBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox18ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Ganador Rojo");
+        JOptionPane.showMessageDialog(this, "Ganador Rojo");
         partido.setGanador(partido.getJugadorA());
     }//GEN-LAST:event_jCheckBox18ActionPerformed
 
@@ -838,7 +838,7 @@ public class Kumite extends javax.swing.JDialog {
         this.puntosAzul += puntaje;
         JL_PuntajeAzul.setText(this.puntosAzul + "");
         if (this.puntosAzul >= 8) {
-            JOptionPane.showMessageDialog(rootPane, "Ganador Azul");
+            JOptionPane.showMessageDialog(this, "Ganador Azul");
             partido.setGanador(partido.getJugadorA());
             this.dispose();
         }
@@ -848,7 +848,7 @@ public class Kumite extends javax.swing.JDialog {
         this.puntosRojo += puntaje;
         JL_PuntajeRojo.setText(this.puntosRojo + "");
         if (this.puntosRojo >= 8) {
-            JOptionPane.showMessageDialog(rootPane, "Ganador Rojo");
+            JOptionPane.showMessageDialog(this, "Ganador Rojo");
             partido.setGanador(partido.getJugadorB());
             this.dispose();
         }
