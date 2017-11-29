@@ -21,7 +21,7 @@ public class Main {
         vista.setVisible(true);
 
 //        // Torneo principal
-//        Torneo torneo = new Torneo(persistencia(), "", "", "", "");
+//        Torneo torneo = new Torneo(persistencia(), "", "", "", "", "");
 //        System.out.println("\nJugadores [" + torneo.getJugadores_bak().size() + "]");
 //        System.out.println(torneo.getJugadores_bak());
 //

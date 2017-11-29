@@ -1,15 +1,17 @@
 package Vista;
 
+import Vista.NProKumite.Kumite;
 import com.google.gson.Gson;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import javax.swing.JFileChooser;
-import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import modelo.Partido;
 import modelo.Torneo;
@@ -17,6 +19,7 @@ import modelo.Torneo;
 public class Principal extends javax.swing.JFrame {
 
     private Torneo torneo;
+    private String archivo;
 
     public Principal() {
         initComponents();
@@ -26,6 +29,53 @@ public class Principal extends javax.swing.JFrame {
         jTable1.setRowSelectionAllowed(true);
         jTable1.setColumnSelectionAllowed(false);
         jTable1.setDefaultEditor(Object.class, null);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(15);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = jTable1.rowAtPoint(evt.getPoint());
+                int col = jTable1.columnAtPoint(evt.getPoint());
+                if (row >= 0 && col >= 0) {
+                    System.out.println();
+                    Partido partido = null;
+                    for (Partido i : torneo.getPartidos()) {
+                        if (i.getId() == (Integer) jTable1.getModel().getValueAt(row, 0)) {
+                            partido = i;
+                            break;
+                        }
+                    }
+                    Kumite nueva_ventana = new Kumite(null, true, partido);
+                    nueva_ventana.setVisible(true);
+                    actualizar();
+                    // Actualizar .json
+                    System.out.println(archivo);
+                    Gson gson = new Gson();
+                    String json = gson.toJson(torneo);
+                    try (PrintWriter out = new PrintWriter(archivo)) {
+                        out.println(json);
+                    } catch (FileNotFoundException ex) {
+                        System.out.println("[ERROR] Guardando archivo");
+                    }
+                    // Termino la ronda?
+                    boolean falta = false;
+                    for (Partido i : torneo.getPartidosActuales()) {
+                        if (i.getGanador() == null) {
+                            falta = true;
+                            break;
+                        }
+                    }
+                    if (!falta) {
+                        torneo.siguienteRonda();
+                        JCB_Ronda.removeAllItems();
+                        for (int i = 0; i <= torneo.getRonda(); i++) {
+                            JCB_Ronda.addItem(Integer.toString(i));
+                        }
+                        JCB_Ronda.setSelectedIndex(torneo.getRonda());
+                    }
+                    actualizar();
+                }
+            }
+        });
     }
 
     /**
@@ -172,6 +222,7 @@ public class Principal extends javax.swing.JFrame {
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             try {
                 Gson gson = new Gson();
+                archivo = fileChooser.getSelectedFile().toString();
                 this.torneo = gson.fromJson(readFile(fileChooser.getSelectedFile().toString(), StandardCharsets.ISO_8859_1), Torneo.class);
                 this.JCB_Ronda.removeAllItems();
                 for (int i = 0; i <= torneo.getRonda(); i++) {
@@ -180,6 +231,7 @@ public class Principal extends javax.swing.JFrame {
                 this.JCB_Ronda.setSelectedIndex(torneo.getRonda());
                 this.JL_Torneo_actual.setText("Torneo " + this.torneo.getDeporte() + ", " + this.torneo.getSexo() + ", " + this.torneo.getPeso() + " Kg Y " + this.torneo.getCinturon());
                 actualizar();
+                Partido.ID = torneo.getPartidos().size() + 1;
             } catch (IOException ex) {
                 System.out.println("[ERROR] Error leyendo archivo json");
             }
@@ -196,13 +248,23 @@ public class Principal extends javax.swing.JFrame {
         String col[] = {"ID Partido", "EquipoA", "EquipoB", "Ganador"};
         DefaultTableModel tableModel = new DefaultTableModel(col, 0);
         for (Partido partido : torneo.getPartido(this.JCB_Ronda.getSelectedIndex())) {
-            Object[] objeto = {
-                partido.getId(),
-                partido.getJugadorA().getNombre_completo() + "(" + partido.getPuntajeA() + ")",
-                partido.getJugadorB().getNombre_completo() + "(" + partido.getPuntajeB() + ")",
-                partido.getGanador()
-            };
-            tableModel.addRow(objeto);
+            if (partido.getGanador() == null) {
+                Object[] objeto = {
+                    partido.getId(),
+                    partido.getJugadorA().getNombre_completo() + "(" + partido.getPuntajeA() + ")",
+                    partido.getJugadorB().getNombre_completo() + "(" + partido.getPuntajeB() + ")",
+                    partido.getGanador()
+                };
+                tableModel.addRow(objeto);
+            } else {
+                Object[] objeto = {
+                    partido.getId(),
+                    partido.getJugadorA().getNombre_completo() + "(" + partido.getPuntajeA() + ")",
+                    partido.getJugadorB().getNombre_completo() + "(" + partido.getPuntajeB() + ")",
+                    partido.getGanador().getNombre_completo()
+                };
+                tableModel.addRow(objeto);
+            }
         }
         jTable1.setModel(tableModel);
         jTable1.repaint();

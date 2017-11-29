@@ -2,7 +2,7 @@ package modelo;
 
 public class Partido {
 
-    private static int ID = 1;
+    public static int ID = 1;
     private final int id;
     private final Jugador jugadorA;
     private final Jugador jugadorB;

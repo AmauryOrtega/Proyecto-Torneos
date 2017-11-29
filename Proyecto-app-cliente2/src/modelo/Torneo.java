@@ -228,4 +228,11 @@ public class Torneo {
         return this.getMini_torneo_tercerista().getGanador();
     }
 
+    @Override
+    public String toString() {
+        return "Torneo{" + "ronda=" + ronda + ", partidos=" + partidos + '}';
+    }
+    
+    
+
 }

@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista.NProKumite;
 
+import Vista.Principal;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Toolkit;
@@ -13,19 +9,10 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import modelo.Partido;
 
-/**
- *
- * @author Cristian Arrieta P
- */
 public class Kumite extends javax.swing.JDialog {
 
-    /**
-     * Creates new form Kumite
-     */
     private Partido partido;
     private int puntosAzul;
     private int puntosRojo;
@@ -35,7 +22,7 @@ public class Kumite extends javax.swing.JDialog {
     private Timer timer;
     private DecimalFormat timeFormatter;
 
-    public Kumite(java.awt.Frame parent, boolean modal, Partido partido) {
+    public Kumite(Principal parent, boolean modal, Partido partido) {
         super(parent, modal);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         initComponents();
@@ -154,6 +141,7 @@ public class Kumite extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("N-Pro Kumite 1.2.2");
         setPreferredSize(new java.awt.Dimension(900, 590));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         JP_60Seconds.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -408,6 +396,11 @@ public class Kumite extends javax.swing.JDialog {
 
         JCB_SenshuRojo.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
         JCB_SenshuRojo.setText("Senshu");
+        JCB_SenshuRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_SenshuRojoActionPerformed(evt);
+            }
+        });
         getContentPane().add(JCB_SenshuRojo);
         JCB_SenshuRojo.setBounds(550, 200, 87, 33);
 
@@ -694,17 +687,14 @@ public class Kumite extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CloseActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_JB_CloseActionPerformed
 
     private void JMI_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_CloseActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_JMI_CloseActionPerformed
 
     private void JB_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_StartActionPerformed
-        // TODO add your handling code here:
         if (JB_Start.getText().equalsIgnoreCase("start")) {
 
             this.timer.start();
@@ -717,13 +707,11 @@ public class Kumite extends javax.swing.JDialog {
     }//GEN-LAST:event_JB_StartActionPerformed
 
     private void JB_60SecondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_60SecondsActionPerformed
-        // TODO add your handling code here:
         setTiempo(1, 0);
         this.timer.stop();
     }//GEN-LAST:event_JB_60SecondsActionPerformed
 
     private void JB_ResetTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ResetTimeActionPerformed
-        // TODO add your handling code here:
         minuto = Integer.parseInt(JTF_MatchTimeMinute.getText());
         segundo = Integer.parseInt(JTF_MatchTimeSeconds.getText());
         setTiempo(minuto, segundo);
@@ -732,53 +720,43 @@ public class Kumite extends javax.swing.JDialog {
     }//GEN-LAST:event_JB_ResetTimeActionPerformed
 
     private void JB_ExtraTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ExtraTimeActionPerformed
-        // TODO add your handling code here:
         setTiempo(1, 0);
         this.timer.stop();
     }//GEN-LAST:event_JB_ExtraTimeActionPerformed
 
     private void JB_IpponAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_IpponAzulActionPerformed
-        // TODO add your handling code here:
         setPuntajeAzul(3);
     }//GEN-LAST:event_JB_IpponAzulActionPerformed
 
     private void JB_WazaAriAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_WazaAriAzulActionPerformed
-        // TODO add your handling code here:
         setPuntajeAzul(2);
     }//GEN-LAST:event_JB_WazaAriAzulActionPerformed
 
     private void JB_YukoAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_YukoAzulActionPerformed
-        // TODO add your handling code here:
         setPuntajeAzul(1);
     }//GEN-LAST:event_JB_YukoAzulActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         setPuntajeAzul(-1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void JB_IpponRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_IpponRojoActionPerformed
-        // TODO add your handling code here:
         setPuntajeRojo(3);
     }//GEN-LAST:event_JB_IpponRojoActionPerformed
 
     private void JB_WazaAriRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_WazaAriRojoActionPerformed
-        // TODO add your handling code here:
         setPuntajeRojo(2);
     }//GEN-LAST:event_JB_WazaAriRojoActionPerformed
 
     private void JB_YukoRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_YukoRojoActionPerformed
-        // TODO add your handling code here:
         setPuntajeRojo(1);
     }//GEN-LAST:event_JB_YukoRojoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         setPuntajeRojo(-1);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void JCB_HanteiC1AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC1AzulActionPerformed
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Ganador Rojo");
         partido.setGanador(partido.getJugadorB());
         this.dispose();
@@ -786,46 +764,46 @@ public class Kumite extends javax.swing.JDialog {
     }//GEN-LAST:event_JCB_HanteiC1AzulActionPerformed
 
     private void JCB_HanteiC1RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC1RojoActionPerformed
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Ganador Azul");
         partido.setGanador(partido.getJugadorA());
         this.dispose();
     }//GEN-LAST:event_JCB_HanteiC1RojoActionPerformed
 
     private void JCB_HanteiC2AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC2AzulActionPerformed
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Ganador Rojo");
         partido.setGanador(partido.getJugadorB());
         this.dispose();
     }//GEN-LAST:event_JCB_HanteiC2AzulActionPerformed
 
     private void JCB_HanteiC2RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC2RojoActionPerformed
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Ganador Azul");
         partido.setGanador(partido.getJugadorA());
         this.dispose();
     }//GEN-LAST:event_JCB_HanteiC2RojoActionPerformed
 
     private void JB_ResetMatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ResetMatchActionPerformed
-        // TODO add your handling code here:
         this.dispose();
-        Kumite kumite = new Kumite((Frame) this.getParent(), true, this.partido);
+        Kumite kumite = new Kumite((Principal) this.getParent(), true, this.partido);
         kumite.setVisible(true);
         //Kumite kumite = new Kumite(null);
         //kumite.setVisible(true);
     }//GEN-LAST:event_JB_ResetMatchActionPerformed
 
     private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Ganador Rojo");
+        JOptionPane.showMessageDialog(this, "Ganador Azul");
         partido.setGanador(partido.getJugadorB());
+        this.dispose();
     }//GEN-LAST:event_jCheckBox17ActionPerformed
 
     private void jCheckBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox18ActionPerformed
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Ganador Rojo");
         partido.setGanador(partido.getJugadorA());
+        this.dispose();
     }//GEN-LAST:event_jCheckBox18ActionPerformed
+
+    private void JCB_SenshuRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_SenshuRojoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCB_SenshuRojoActionPerformed
 
     public void setTiempo(int minuto, int segundo) {
         JL_Tiempo.setText(timeFormatter.format(minuto) + ":"
@@ -853,25 +831,6 @@ public class Kumite extends javax.swing.JDialog {
             this.dispose();
         }
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-                    e.printStackTrace();
-                }
-                new Kumite(null, true, null).setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB_60Seconds;
     private javax.swing.JButton JB_Close;
