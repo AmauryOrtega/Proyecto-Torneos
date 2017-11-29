@@ -5,7 +5,6 @@
  */
 package modelo;
 
-import Vista.NProKumite.Kumite;
 import Vista.Principal;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,8 +30,6 @@ public class Main {
         }
         Principal ventana = new Principal();
         ventana.setVisible(true);
-        Kumite venta2 = new Kumite(null, true, null);
-        venta2.setVisible(true);
 
 //        // Torneo principal
 //        Torneo torneo = new Torneo(persistencia(), "", "", "", "");
