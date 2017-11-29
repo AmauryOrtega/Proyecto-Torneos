@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import vista.Principal;
+import Vista.Principal;
 
 public class Main {
 

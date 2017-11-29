@@ -1,4 +1,4 @@
-package vista;
+package Vista;
 
 import com.google.gson.Gson;
 import java.awt.Dimension;
