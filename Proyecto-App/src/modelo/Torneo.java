@@ -9,6 +9,7 @@ public class Torneo {
     private final String sexo;
     private final String edad;
     private final String deporte;
+    private final String peso;
 
     private int ronda;
 
@@ -22,7 +23,7 @@ public class Torneo {
 
     private Torneo mini_torneo_tercerista;
 
-    public Torneo(ArrayList<Jugador> jugadores, String cinturon, String sexo, String edad, String deporte) {
+    public Torneo(ArrayList<Jugador> jugadores, String cinturon, String sexo, String edad, String deporte, String peso) {
         this.jugadores = jugadores;
         this.jugadores_bak = (ArrayList<Jugador>) jugadores.clone();
         this.partidos = new ArrayList<>();
@@ -47,6 +48,7 @@ public class Torneo {
         this.sexo = sexo;
         this.edad = edad;
         this.deporte = deporte;
+        this.peso = peso;
     }
 
     public int getRonda() {
@@ -138,7 +140,7 @@ public class Torneo {
     public void iniciarMiniTorneo() {
         if (this.getGanador() != null) {
             ArrayList<Jugador> terceristas = this.getTerceristas();
-            this.mini_torneo_tercerista = new Torneo(terceristas, this.cinturon, this.sexo, this.edad, this.deporte);
+            this.mini_torneo_tercerista = new Torneo(terceristas, this.cinturon, this.sexo, this.edad, this.deporte, this.peso);
         }
     }
 
