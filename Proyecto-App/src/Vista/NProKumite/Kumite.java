@@ -141,15 +141,6 @@ public class Kumite extends javax.swing.JDialog {
         jCheckBox18 = new javax.swing.JCheckBox();
         JL_Fondo = new javax.swing.JLabel();
         JMB_BarraTareas = new javax.swing.JMenuBar();
-        JM_Menu = new javax.swing.JMenu();
-        JMI_ResetMatch = new javax.swing.JMenuItem();
-        JMI_ResetTime = new javax.swing.JMenuItem();
-        JMI_ExtraTime = new javax.swing.JMenuItem();
-        JMI_60Seconds = new javax.swing.JMenuItem();
-        jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        JMI_About = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        JMI_Close = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("N-Pro Kumite 1.2.2");
@@ -183,7 +174,7 @@ public class Kumite extends javax.swing.JDialog {
         );
 
         getContentPane().add(JP_60Seconds);
-        JP_60Seconds.setBounds(690, 190, 178, 57);
+        JP_60Seconds.setBounds(690, 170, 178, 57);
 
         JP_ResetMatch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -212,7 +203,7 @@ public class Kumite extends javax.swing.JDialog {
         );
 
         getContentPane().add(JP_ResetMatch);
-        JP_ResetMatch.setBounds(690, 260, 178, 57);
+        JP_ResetMatch.setBounds(690, 250, 178, 57);
 
         JP_Time.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Time"));
 
@@ -244,7 +235,8 @@ public class Kumite extends javax.swing.JDialog {
             JP_TimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_TimeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JP_TimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(JP_TimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JB_ResetTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(JP_TimeLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -252,10 +244,10 @@ public class Kumite extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTF_MatchTimeSeconds, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JB_ResetTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JTF_MatchTimeSeconds, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 22, Short.MAX_VALUE))
                     .addComponent(JB_ExtraTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         JP_TimeLayout.setVerticalGroup(
             JP_TimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +265,7 @@ public class Kumite extends javax.swing.JDialog {
         );
 
         getContentPane().add(JP_Time);
-        JP_Time.setBounds(690, 30, 158, 136);
+        JP_Time.setBounds(690, 10, 180, 136);
 
         JP_Close.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -444,7 +436,7 @@ public class Kumite extends javax.swing.JDialog {
                     .addComponent(jCheckBox3)
                     .addComponent(jCheckBox2)
                     .addComponent(jCheckBox1))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -522,7 +514,7 @@ public class Kumite extends javax.swing.JDialog {
                     .addComponent(jCheckBox11)
                     .addComponent(jCheckBox10)
                     .addComponent(jCheckBox9))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3);
@@ -561,7 +553,7 @@ public class Kumite extends javax.swing.JDialog {
                     .addComponent(jCheckBox15)
                     .addComponent(jCheckBox14)
                     .addComponent(jCheckBox13))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel4);
@@ -658,36 +650,6 @@ public class Kumite extends javax.swing.JDialog {
         JL_Fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(JL_Fondo);
         JL_Fondo.setBounds(10, 10, 670, 490);
-
-        JM_Menu.setText("Menu");
-
-        JMI_ResetMatch.setText("Reset Match");
-        JM_Menu.add(JMI_ResetMatch);
-
-        JMI_ResetTime.setText("Reset Time");
-        JM_Menu.add(JMI_ResetTime);
-
-        JMI_ExtraTime.setText("Extra Time");
-        JM_Menu.add(JMI_ExtraTime);
-
-        JMI_60Seconds.setText("60 seconds");
-        JM_Menu.add(JMI_60Seconds);
-        JM_Menu.add(jSeparator3);
-
-        JMI_About.setText("About");
-        JM_Menu.add(JMI_About);
-        JM_Menu.add(jSeparator4);
-
-        JMI_Close.setText("Close");
-        JMI_Close.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMI_CloseActionPerformed(evt);
-            }
-        });
-        JM_Menu.add(JMI_Close);
-
-        JMB_BarraTareas.add(JM_Menu);
-
         setJMenuBar(JMB_BarraTareas);
 
         pack();
@@ -697,11 +659,6 @@ public class Kumite extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_JB_CloseActionPerformed
-
-    private void JMI_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_CloseActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_JMI_CloseActionPerformed
 
     private void JB_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_StartActionPerformed
         // TODO add your handling code here:
@@ -896,13 +853,6 @@ public class Kumite extends javax.swing.JDialog {
     private javax.swing.JLabel JL_PuntajeRojo;
     private javax.swing.JLabel JL_Tiempo;
     private javax.swing.JMenuBar JMB_BarraTareas;
-    private javax.swing.JMenuItem JMI_60Seconds;
-    private javax.swing.JMenuItem JMI_About;
-    private javax.swing.JMenuItem JMI_Close;
-    private javax.swing.JMenuItem JMI_ExtraTime;
-    private javax.swing.JMenuItem JMI_ResetMatch;
-    private javax.swing.JMenuItem JMI_ResetTime;
-    private javax.swing.JMenu JM_Menu;
     private javax.swing.JPanel JP_60Seconds;
     private javax.swing.JPanel JP_Close;
     private javax.swing.JPanel JP_ResetMatch;
@@ -941,8 +891,6 @@ public class Kumite extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator4;
     // End of variables declaration//GEN-END:variables
 
 }
