@@ -2,14 +2,15 @@ package modelo;
 
 public class Partido {
 
-    private Jugador jugadorA;
-    private Jugador jugadorB;
+    private static int ID = 1;
+    private final int id;
+    private final Jugador jugadorA;
+    private final Jugador jugadorB;
+    private final int ronda;
+
     private int puntajeA;
     private int puntajeB;
-    private int ronda;
     private int ganador = -1;
-    private static int ID = 0;
-    private int id;
 
     public Partido(Jugador jugadorA, Jugador jugadorB, int ronda) {
         this.jugadorA = jugadorA;
@@ -19,49 +20,33 @@ public class Partido {
         ID++;
     }
 
-    public int getRonda() {
-        return ronda;
-    }
-
-    public void setRonda(int ronda) {
-        this.ronda = ronda;
+    public int getId() {
+        return id;
     }
 
     public Jugador getJugadorA() {
         return jugadorA;
     }
 
-    public void setJugadorA(Jugador jugadorA) {
-        this.jugadorA = jugadorA;
-    }
-
     public Jugador getJugadorB() {
         return jugadorB;
     }
 
-    public void setJugadorB(Jugador jugadorB) {
-        this.jugadorB = jugadorB;
+    public int getRonda() {
+        return ronda;
     }
 
     public int getPuntajeA() {
         return puntajeA;
     }
 
-    private void setPuntajeA(int puntajeA) {
-        this.puntajeA = puntajeA;
-    }
-
     public int getPuntajeB() {
         return puntajeB;
     }
 
-    private void setPuntajeB(int puntajeB) {
-        this.puntajeB = puntajeB;
-    }
-
     public void setPuntaje(int puntajeA, int puntajeB) {
-        this.setPuntajeA(puntajeA);
-        this.setPuntajeB(puntajeB);
+        this.puntajeA = puntajeA;
+        this.puntajeB = puntajeB;
     }
 
     public Jugador getGanador() {
@@ -96,7 +81,8 @@ public class Partido {
 
     @Override
     public String toString() {
-        return "Partido#" + this.id + "{[" + ronda + "]" + jugadorA + "(" + puntajeA + ") - " + jugadorB + "(" + puntajeB + ")" + " => " + this.getGanador() + '}';
+        return "Partido#" + this.id + "{[" + ronda + "]" + jugadorA.getNombre_completo()
+                + " CC." + jugadorA.getCedula() + "(" + puntajeA + ") - " + jugadorB.getNombre_completo()
+                + " CC." + jugadorB.getCedula() + "(" + puntajeB + ")" + " => " + this.getGanador() + '}';
     }
-
 }
