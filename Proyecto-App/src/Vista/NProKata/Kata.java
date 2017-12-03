@@ -131,7 +131,7 @@ public class Kata extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         JB_Close = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(620, 360));
         getContentPane().setLayout(null);
 
