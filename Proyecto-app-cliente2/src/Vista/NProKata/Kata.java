@@ -10,24 +10,15 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import modelo.Partido;
 
-/**
- *
- * @author Cristian Arrieta P
- */
 public class Kata extends javax.swing.JDialog {
 
-    /**
-     * Creates new form Kata
-     */
     private Partido partido;
     private int puntosAzul;
     private int puntosRojo;
@@ -48,7 +39,8 @@ public class Kata extends javax.swing.JDialog {
         JL_BanderaRoja.setIcon(createImageIcon("/Imagen/NProKata/bandera_roja.png", "")); // NOI18N
         JL_MuestraTiempo.setIcon(createImageIcon("/Imagen/NProKata/Contador.png", "")); // NOI18N
         JL_Fondo.setIcon(createImageIcon("/Imagen/NProKata/Fondo.jpg", "")); // NOI18N
-        
+        JTF_MatchTimeMinute.setText("6");
+        JTF_MatchTimeSeconds.setText("00");
         this.partido = partido;
         this.puntosAzul = 0;
         this.puntosRojo = 0;
@@ -343,6 +335,8 @@ public class Kata extends javax.swing.JDialog {
             }
         });
 
+        JTF_MatchTimeMinute.setToolTipText("");
+
         jLabel2.setText(":");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -481,8 +475,7 @@ public class Kata extends javax.swing.JDialog {
     }//GEN-LAST:event_JB_ResetMatchActionPerformed
 
     private void JB_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CloseActionPerformed
-        // TODO add your handling code here:
-
+        
         this.dispose();
     }//GEN-LAST:event_JB_CloseActionPerformed
 
@@ -490,7 +483,6 @@ public class Kata extends javax.swing.JDialog {
         // TODO add your handling code here:
         // TODO add your handling code here:
         if (JB_Start.getText().equalsIgnoreCase("start")) {
-
             this.timer.start();
             JB_Start.setText("Stop");
         } else {
