@@ -5,7 +5,6 @@
  */
 package modelo;
 
-import Vista.NProKumite.Kumite;
 import Vista.Principal;
 import java.io.File;
 import java.io.FileNotFoundException;

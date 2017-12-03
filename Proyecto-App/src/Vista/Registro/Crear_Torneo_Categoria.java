@@ -168,8 +168,8 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
                     }
                 }
                 scanner.close();
-                Torneo torneo = new Torneo(jugadores, this.JL_Cinturon.getText().toUpperCase(),
-                        this.JL_Sexo.getText().toUpperCase(), this.JTF_Edad.getText().toUpperCase(),
+                Torneo torneo = new Torneo(jugadores, this.JTF_Cinturon.getText().toUpperCase(),
+                        this.JTF_Sexo.getText().toUpperCase(), this.JTF_Edad.getText().toUpperCase(),
                         this.JTF_Deporte.getText().toUpperCase(), this.JTF_Peso.getText().toUpperCase()
                 );
                 Gson gson = new Gson();
