@@ -10,7 +10,9 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.text.DecimalFormat;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -38,16 +40,15 @@ public class Kata extends javax.swing.JDialog {
     public Kata(java.awt.Frame parent, boolean modal, Partido partido) {
         super(parent, modal);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-
         initComponents();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 
-//        JL_Referees.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Referees.png"))); // NOI18N
-//        JL_BanderaAzul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/bandera_azul.png"))); // NOI18N
-//        JL_BanderaRoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/bandera_roja.png"))); // NOI18N
-//        JL_MuestraTiempo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Contador.png"))); // NOI18N
-//        JL_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Fondo.jpg"))); // NOI18N
-
+        JL_Referees.setIcon(createImageIcon("/Imagen/NProKata/Referees.png", "")); // NOI18N
+        JL_BanderaAzul.setIcon(createImageIcon("/Imagen/NProKata/bandera_azul.png", "")); // NOI18N
+        JL_BanderaRoja.setIcon(createImageIcon("/Imagen/NProKata/bandera_roja.png", "")); // NOI18N
+        JL_MuestraTiempo.setIcon(createImageIcon("/Imagen/NProKata/Contador.png", "")); // NOI18N
+        JL_Fondo.setIcon(createImageIcon("/Imagen/NProKata/Fondo.jpg", "")); // NOI18N
+        
         this.partido = partido;
         this.puntosAzul = 0;
         this.puntosRojo = 0;
@@ -293,10 +294,17 @@ public class Kata extends javax.swing.JDialog {
         });
         jPanel1.add(JRB_3Referees);
         JRB_3Referees.setBounds(209, 30, 40, 23);
+
+        JL_BanderaRoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/bandera_roja.png"))); // NOI18N
         jPanel1.add(JL_BanderaRoja);
-        JL_BanderaRoja.setBounds(20, 60, 0, 153);
+        JL_BanderaRoja.setBounds(20, 60, 135, 153);
+
+        JL_BanderaAzul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/bandera_azul.png"))); // NOI18N
         jPanel1.add(JL_BanderaAzul);
         JL_BanderaAzul.setBounds(270, 60, 140, 150);
+
+        JL_Referees.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JL_Referees.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Referees.png"))); // NOI18N
         jPanel1.add(JL_Referees);
         JL_Referees.setBounds(140, 20, 150, 40);
 
@@ -304,10 +312,15 @@ public class Kata extends javax.swing.JDialog {
         JL_Tiempo.setText("6:00");
         jPanel1.add(JL_Tiempo);
         JL_Tiempo.setBounds(160, 220, 120, 60);
+
+        JL_MuestraTiempo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Contador.png"))); // NOI18N
         jPanel1.add(JL_MuestraTiempo);
         JL_MuestraTiempo.setBounds(150, 210, 130, 80);
+
+        JL_Fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JL_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Fondo.jpg"))); // NOI18N
         jPanel1.add(JL_Fondo);
-        JL_Fondo.setBounds(10, 11, 400, 0);
+        JL_Fondo.setBounds(10, 11, 400, 280);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(10, 10, 420, 300);
@@ -432,6 +445,18 @@ public class Kata extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private ImageIcon createImageIcon(String path,
+            String description) {
+        java.net.URL imgURL = getClass().getResource(path);
+        if (imgURL != null) {
+            System.out.println(path);
+            return new ImageIcon(imgURL, description);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
+
     private void JB_ResetTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ResetTimeActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
@@ -457,8 +482,7 @@ public class Kata extends javax.swing.JDialog {
 
     private void JB_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CloseActionPerformed
         // TODO add your handling code here:
-        
-        
+
         this.dispose();
     }//GEN-LAST:event_JB_CloseActionPerformed
 
@@ -551,20 +575,21 @@ public class Kata extends javax.swing.JDialog {
         JRB_4Rojo.setSelected(true);
     }//GEN-LAST:event_JRB_5AzulActionPerformed
 
-    public void setDisabledAll(){
+    public void setDisabledAll() {
         JRB_1Azul.setSelected(false);
         JRB_2Azul.setSelected(false);
         JRB_3Azul.setSelected(false);
         JRB_4Azul.setSelected(false);
         JRB_5Azul.setSelected(false);
-        
+
         JRB_1Rojo.setSelected(false);
         JRB_2Rojo.setSelected(false);
         JRB_3Rojo.setSelected(false);
         JRB_4Rojo.setSelected(false);
         JRB_5Rojo.setSelected(false);
-        
+
     }
+
     public void setTiempo(int minuto, int segundo) {
         JL_Tiempo.setText(timeFormatter.format(minuto) + ":"
                 + timeFormatter.format(segundo));
@@ -582,7 +607,7 @@ public class Kata extends javax.swing.JDialog {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
