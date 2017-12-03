@@ -244,8 +244,7 @@ public class Kumite extends javax.swing.JDialog {
             JP_TimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_TimeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JP_TimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JB_ExtraTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JP_TimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JP_TimeLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -253,10 +252,10 @@ public class Kumite extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTF_MatchTimeSeconds, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 22, Short.MAX_VALUE))
-                    .addComponent(JB_ResetTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(JTF_MatchTimeSeconds, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JB_ResetTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JB_ExtraTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JP_TimeLayout.setVerticalGroup(
             JP_TimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +273,7 @@ public class Kumite extends javax.swing.JDialog {
         );
 
         getContentPane().add(JP_Time);
-        JP_Time.setBounds(690, 30, 180, 136);
+        JP_Time.setBounds(690, 30, 158, 136);
 
         JP_Close.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -402,16 +401,12 @@ public class Kumite extends javax.swing.JDialog {
         getContentPane().add(JL_Tiempo);
         JL_Tiempo.setBounds(270, 160, 180, 62);
 
-        JCB_SenshuAzul.setBackground(new java.awt.Color(0, 0, 204));
         JCB_SenshuAzul.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
-        JCB_SenshuAzul.setForeground(new java.awt.Color(255, 255, 255));
         JCB_SenshuAzul.setText("Senshu");
         getContentPane().add(JCB_SenshuAzul);
         JCB_SenshuAzul.setBounds(40, 200, 100, 33);
 
-        JCB_SenshuRojo.setBackground(new java.awt.Color(204, 0, 0));
         JCB_SenshuRojo.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
-        JCB_SenshuRojo.setForeground(new java.awt.Color(255, 255, 255));
         JCB_SenshuRojo.setText("Senshu");
         getContentPane().add(JCB_SenshuRojo);
         JCB_SenshuRojo.setBounds(550, 200, 87, 33);
@@ -419,13 +414,6 @@ public class Kumite extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
-        jCheckBox1.setBackground(new java.awt.Color(204, 0, 0));
-
-        jCheckBox2.setBackground(new java.awt.Color(204, 0, 0));
-
-        jCheckBox3.setBackground(new java.awt.Color(204, 0, 0));
-
-        JCB_HanteiC2Rojo.setBackground(new java.awt.Color(204, 0, 0));
         JCB_HanteiC2Rojo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCB_HanteiC2RojoActionPerformed(evt);
@@ -441,11 +429,11 @@ public class Kumite extends javax.swing.JDialog {
                 .addComponent(jCheckBox1)
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox2)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jCheckBox3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(JCB_HanteiC2Rojo)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,22 +444,15 @@ public class Kumite extends javax.swing.JDialog {
                     .addComponent(jCheckBox3)
                     .addComponent(jCheckBox2)
                     .addComponent(jCheckBox1))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(460, 420, 170, 40);
+        jPanel1.setBounds(460, 420, 170, 50);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
-        jCheckBox5.setBackground(new java.awt.Color(0, 0, 204));
-
-        jCheckBox6.setBackground(new java.awt.Color(0, 0, 204));
-
-        jCheckBox7.setBackground(new java.awt.Color(0, 0, 204));
-
-        JCB_HanteiC2Azul.setBackground(new java.awt.Color(0, 0, 204));
         JCB_HanteiC2Azul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCB_HanteiC2AzulActionPerformed(evt);
@@ -487,11 +468,11 @@ public class Kumite extends javax.swing.JDialog {
                 .addComponent(jCheckBox5)
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox6)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jCheckBox7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(JCB_HanteiC2Azul)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -502,22 +483,15 @@ public class Kumite extends javax.swing.JDialog {
                     .addComponent(jCheckBox7)
                     .addComponent(jCheckBox6)
                     .addComponent(jCheckBox5))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(60, 420, 170, 40);
+        jPanel2.setBounds(60, 420, 170, 44);
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
-        jCheckBox9.setBackground(new java.awt.Color(0, 0, 204));
-
-        jCheckBox10.setBackground(new java.awt.Color(0, 0, 204));
-
-        jCheckBox11.setBackground(new java.awt.Color(0, 0, 204));
-
-        JCB_HanteiC1Azul.setBackground(new java.awt.Color(0, 0, 204));
         JCB_HanteiC1Azul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCB_HanteiC1AzulActionPerformed(evt);
@@ -533,11 +507,11 @@ public class Kumite extends javax.swing.JDialog {
                 .addComponent(jCheckBox9)
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox10)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jCheckBox11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(JCB_HanteiC1Azul)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -548,22 +522,15 @@ public class Kumite extends javax.swing.JDialog {
                     .addComponent(jCheckBox11)
                     .addComponent(jCheckBox10)
                     .addComponent(jCheckBox9))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(60, 370, 170, 40);
+        jPanel3.setBounds(60, 360, 170, 50);
 
         jPanel4.setBackground(new java.awt.Color(204, 0, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
-        jCheckBox13.setBackground(new java.awt.Color(204, 0, 0));
-
-        jCheckBox14.setBackground(new java.awt.Color(204, 0, 0));
-
-        jCheckBox15.setBackground(new java.awt.Color(204, 0, 0));
-
-        JCB_HanteiC1Rojo.setBackground(new java.awt.Color(204, 0, 0));
         JCB_HanteiC1Rojo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCB_HanteiC1RojoActionPerformed(evt);
@@ -579,11 +546,11 @@ public class Kumite extends javax.swing.JDialog {
                 .addComponent(jCheckBox13)
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox14)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jCheckBox15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(JCB_HanteiC1Rojo)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,11 +561,11 @@ public class Kumite extends javax.swing.JDialog {
                     .addComponent(jCheckBox15)
                     .addComponent(jCheckBox14)
                     .addComponent(jCheckBox13))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(460, 370, 170, 40);
+        jPanel4.setBounds(460, 360, 170, 50);
 
         jLabel5.setFont(new java.awt.Font("Unispace", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -648,7 +615,6 @@ public class Kumite extends javax.swing.JDialog {
         getContentPane().add(jLabel12);
         jLabel12.setBounds(600, 340, 20, 20);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("-1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -656,9 +622,8 @@ public class Kumite extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(180, 280, 50, 30);
+        jButton1.setBounds(180, 280, 43, 23);
 
-        jButton2.setFont(new java.awt.Font("Unispace", 1, 12)); // NOI18N
         jButton2.setText("-1");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -666,11 +631,9 @@ public class Kumite extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(470, 280, 47, 30);
+        jButton2.setBounds(470, 280, 43, 23);
 
-        jCheckBox17.setBackground(new java.awt.Color(204, 0, 0));
         jCheckBox17.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
-        jCheckBox17.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox17.setText("Kiken");
         jCheckBox17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -680,9 +643,7 @@ public class Kumite extends javax.swing.JDialog {
         getContentPane().add(jCheckBox17);
         jCheckBox17.setBounds(560, 250, 71, 33);
 
-        jCheckBox18.setBackground(new java.awt.Color(0, 0, 204));
         jCheckBox18.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
-        jCheckBox18.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox18.setText("Kiken");
         jCheckBox18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -816,6 +777,14 @@ public class Kumite extends javax.swing.JDialog {
         setPuntajeRojo(-1);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void JCB_HanteiC1AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC1AzulActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Ganador Rojo");
+        partido.setGanador(partido.getJugadorB());
+        this.dispose();
+
+    }//GEN-LAST:event_JCB_HanteiC1AzulActionPerformed
+
     private void JCB_HanteiC1RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC1RojoActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Ganador Azul");
@@ -857,13 +826,6 @@ public class Kumite extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(this, "Ganador Rojo");
         partido.setGanador(partido.getJugadorA());
     }//GEN-LAST:event_jCheckBox18ActionPerformed
-
-    private void JCB_HanteiC1AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_HanteiC1AzulActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Ganador Rojo");
-        partido.setGanador(partido.getJugadorB());
-        this.dispose();
-    }//GEN-LAST:event_JCB_HanteiC1AzulActionPerformed
 
     public void setTiempo(int minuto, int segundo) {
         JL_Tiempo.setText(timeFormatter.format(minuto) + ":"
