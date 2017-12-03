@@ -27,18 +27,157 @@ public class Kata extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        BG_Azul = new javax.swing.ButtonGroup();
+        GB_Rojo = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        JL_NumerosPuntosRojo = new javax.swing.JLabel();
+        JL_NumerosPuntosAzul = new javax.swing.JLabel();
+        JB_Start = new javax.swing.JButton();
+        JL_NombreRojo = new javax.swing.JLabel();
+        JL_NombreAzul = new javax.swing.JLabel();
+        JRB_1Rojo = new javax.swing.JRadioButton();
+        JRB_1Azul = new javax.swing.JRadioButton();
+        JRB_2Azul = new javax.swing.JRadioButton();
+        JRB_3Azul = new javax.swing.JRadioButton();
+        JRB_4Azul = new javax.swing.JRadioButton();
+        JRB_5Azul = new javax.swing.JRadioButton();
+        JRB_2Rojo = new javax.swing.JRadioButton();
+        JRB_3Rojo = new javax.swing.JRadioButton();
+        JRB_4Rojo = new javax.swing.JRadioButton();
+        JRB_5Rojo = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        JL_BanderaRoja = new javax.swing.JLabel();
+        JL_BanderaAzul = new javax.swing.JLabel();
+        JL_Referees = new javax.swing.JLabel();
+        JL_Tiempo = new javax.swing.JLabel();
+        JL_MuestraTiempo = new javax.swing.JLabel();
+        JL_Fondo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(560, 380));
+        getContentPane().setLayout(null);
+
+        jPanel1.setLayout(null);
+
+        JL_NumerosPuntosRojo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JL_NumerosPuntosRojo.setText(" 1   2    3   4   5");
+        jPanel1.add(JL_NumerosPuntosRojo);
+        JL_NumerosPuntosRojo.setBounds(40, 160, 110, 17);
+
+        JL_NumerosPuntosAzul.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JL_NumerosPuntosAzul.setText(" 1   2   3   4   5");
+        jPanel1.add(JL_NumerosPuntosAzul);
+        JL_NumerosPuntosAzul.setBounds(290, 160, 100, 17);
+
+        JB_Start.setBackground(new java.awt.Color(153, 255, 153));
+        JB_Start.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
+        JB_Start.setText("Start");
+        jPanel1.add(JB_Start);
+        JB_Start.setBounds(170, 170, 80, 40);
+
+        JL_NombreRojo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JL_NombreRojo.setForeground(new java.awt.Color(255, 255, 255));
+        JL_NombreRojo.setText("Nombre Aka");
+        jPanel1.add(JL_NombreRojo);
+        JL_NombreRojo.setBounds(20, 30, 110, 17);
+
+        JL_NombreAzul.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JL_NombreAzul.setForeground(new java.awt.Color(255, 255, 255));
+        JL_NombreAzul.setText("Nombre Ao");
+        jPanel1.add(JL_NombreAzul);
+        JL_NombreAzul.setBounds(300, 30, 100, 17);
+
+        JRB_1Rojo.setBackground(new java.awt.Color(255, 255, 255));
+        GB_Rojo.add(JRB_1Rojo);
+        jPanel1.add(JRB_1Rojo);
+        JRB_1Rojo.setBounds(40, 180, 20, 21);
+
+        JRB_1Azul.setBackground(new java.awt.Color(255, 255, 255));
+        BG_Azul.add(JRB_1Azul);
+        jPanel1.add(JRB_1Azul);
+        JRB_1Azul.setBounds(290, 180, 20, 21);
+
+        JRB_2Azul.setBackground(new java.awt.Color(255, 255, 255));
+        BG_Azul.add(JRB_2Azul);
+        jPanel1.add(JRB_2Azul);
+        JRB_2Azul.setBounds(310, 180, 20, 21);
+
+        JRB_3Azul.setBackground(new java.awt.Color(255, 255, 255));
+        BG_Azul.add(JRB_3Azul);
+        jPanel1.add(JRB_3Azul);
+        JRB_3Azul.setBounds(330, 180, 20, 21);
+
+        JRB_4Azul.setBackground(new java.awt.Color(255, 255, 255));
+        BG_Azul.add(JRB_4Azul);
+        jPanel1.add(JRB_4Azul);
+        JRB_4Azul.setBounds(350, 180, 20, 21);
+
+        JRB_5Azul.setBackground(new java.awt.Color(255, 255, 255));
+        BG_Azul.add(JRB_5Azul);
+        jPanel1.add(JRB_5Azul);
+        JRB_5Azul.setBounds(370, 180, 20, 21);
+
+        JRB_2Rojo.setBackground(new java.awt.Color(255, 255, 255));
+        GB_Rojo.add(JRB_2Rojo);
+        jPanel1.add(JRB_2Rojo);
+        JRB_2Rojo.setBounds(60, 180, 20, 21);
+
+        JRB_3Rojo.setBackground(new java.awt.Color(255, 255, 255));
+        GB_Rojo.add(JRB_3Rojo);
+        jPanel1.add(JRB_3Rojo);
+        JRB_3Rojo.setBounds(80, 180, 20, 21);
+
+        JRB_4Rojo.setBackground(new java.awt.Color(255, 255, 255));
+        GB_Rojo.add(JRB_4Rojo);
+        jPanel1.add(JRB_4Rojo);
+        JRB_4Rojo.setBounds(100, 180, 21, 21);
+
+        JRB_5Rojo.setBackground(new java.awt.Color(255, 255, 255));
+        GB_Rojo.add(JRB_5Rojo);
+        jPanel1.add(JRB_5Rojo);
+        JRB_5Rojo.setBounds(120, 180, 20, 21);
+
+        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setText("5");
+        jPanel1.add(jRadioButton2);
+        jRadioButton2.setBounds(240, 30, 40, 23);
+
+        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setText("3");
+        jPanel1.add(jRadioButton1);
+        jRadioButton1.setBounds(209, 30, 40, 23);
+
+        JL_BanderaRoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/bandera_roja.png"))); // NOI18N
+        jPanel1.add(JL_BanderaRoja);
+        JL_BanderaRoja.setBounds(20, 60, 135, 153);
+
+        JL_BanderaAzul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/bandera_azul.png"))); // NOI18N
+        JL_BanderaAzul.setText("jLabel3");
+        jPanel1.add(JL_BanderaAzul);
+        JL_BanderaAzul.setBounds(270, 60, 140, 150);
+
+        JL_Referees.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Referees.png"))); // NOI18N
+        JL_Referees.setText("jLabel5");
+        jPanel1.add(JL_Referees);
+        JL_Referees.setBounds(140, 20, 150, 40);
+
+        JL_Tiempo.setFont(new java.awt.Font("Unispace", 0, 48)); // NOI18N
+        JL_Tiempo.setText("6:00");
+        jPanel1.add(JL_Tiempo);
+        JL_Tiempo.setBounds(160, 220, 120, 60);
+
+        JL_MuestraTiempo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Contador.png"))); // NOI18N
+        JL_MuestraTiempo.setText("jLabel4");
+        jPanel1.add(JL_MuestraTiempo);
+        JL_MuestraTiempo.setBounds(150, 210, 130, 80);
+
+        JL_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKata/Fondo.jpg"))); // NOI18N
+        jPanel1.add(JL_Fondo);
+        JL_Fondo.setBounds(10, 11, 400, 280);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(10, 10, 540, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +218,31 @@ public class Kata extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup BG_Azul;
+    private javax.swing.ButtonGroup GB_Rojo;
+    private javax.swing.JButton JB_Start;
+    private javax.swing.JLabel JL_BanderaAzul;
+    private javax.swing.JLabel JL_BanderaRoja;
+    private javax.swing.JLabel JL_Fondo;
+    private javax.swing.JLabel JL_MuestraTiempo;
+    private javax.swing.JLabel JL_NombreAzul;
+    private javax.swing.JLabel JL_NombreRojo;
+    private javax.swing.JLabel JL_NumerosPuntosAzul;
+    private javax.swing.JLabel JL_NumerosPuntosRojo;
+    private javax.swing.JLabel JL_Referees;
+    private javax.swing.JLabel JL_Tiempo;
+    private javax.swing.JRadioButton JRB_1Azul;
+    private javax.swing.JRadioButton JRB_1Rojo;
+    private javax.swing.JRadioButton JRB_2Azul;
+    private javax.swing.JRadioButton JRB_2Rojo;
+    private javax.swing.JRadioButton JRB_3Azul;
+    private javax.swing.JRadioButton JRB_3Rojo;
+    private javax.swing.JRadioButton JRB_4Azul;
+    private javax.swing.JRadioButton JRB_4Rojo;
+    private javax.swing.JRadioButton JRB_5Azul;
+    private javax.swing.JRadioButton JRB_5Rojo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     // End of variables declaration//GEN-END:variables
 }
