@@ -140,20 +140,10 @@ public class Kumite extends javax.swing.JDialog {
         jCheckBox17 = new javax.swing.JCheckBox();
         jCheckBox18 = new javax.swing.JCheckBox();
         JL_Fondo = new javax.swing.JLabel();
-        JMB_BarraTareas = new javax.swing.JMenuBar();
-        JM_Menu = new javax.swing.JMenu();
-        JMI_ResetMatch = new javax.swing.JMenuItem();
-        JMI_ResetTime = new javax.swing.JMenuItem();
-        JMI_ExtraTime = new javax.swing.JMenuItem();
-        JMI_60Seconds = new javax.swing.JMenuItem();
-        jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        JMI_About = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        JMI_Close = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("N-Pro Kumite 1.2.2");
-        setPreferredSize(new java.awt.Dimension(900, 590));
+        setPreferredSize(new java.awt.Dimension(900, 550));
         getContentPane().setLayout(null);
 
         JP_60Seconds.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -370,7 +360,7 @@ public class Kumite extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Category 2");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(270, 430, 170, 32);
+        jLabel1.setBounds(270, 430, 170, 29);
 
         JB_WazaAriAzul.setText("Waza-ari");
         JB_WazaAriAzul.addActionListener(new java.awt.event.ActionListener() {
@@ -394,27 +384,27 @@ public class Kumite extends javax.swing.JDialog {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Category 1");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(270, 370, 170, 32);
+        jLabel4.setBounds(270, 370, 170, 29);
 
         JL_Tiempo.setFont(new java.awt.Font("Unispace", 1, 48)); // NOI18N
         JL_Tiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_Tiempo.setText("01:30");
         getContentPane().add(JL_Tiempo);
-        JL_Tiempo.setBounds(270, 160, 180, 62);
+        JL_Tiempo.setBounds(270, 160, 180, 58);
 
         JCB_SenshuAzul.setBackground(new java.awt.Color(0, 0, 204));
         JCB_SenshuAzul.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
         JCB_SenshuAzul.setForeground(new java.awt.Color(255, 255, 255));
         JCB_SenshuAzul.setText("Senshu");
         getContentPane().add(JCB_SenshuAzul);
-        JCB_SenshuAzul.setBounds(40, 200, 100, 33);
+        JCB_SenshuAzul.setBounds(40, 200, 100, 31);
 
         JCB_SenshuRojo.setBackground(new java.awt.Color(204, 0, 0));
         JCB_SenshuRojo.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
         JCB_SenshuRojo.setForeground(new java.awt.Color(255, 255, 255));
         JCB_SenshuRojo.setText("Senshu");
         getContentPane().add(JCB_SenshuRojo);
-        JCB_SenshuRojo.setBounds(550, 200, 87, 33);
+        JCB_SenshuRojo.setBounds(550, 200, 91, 31);
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -678,7 +668,7 @@ public class Kumite extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jCheckBox17);
-        jCheckBox17.setBounds(560, 250, 71, 33);
+        jCheckBox17.setBounds(560, 250, 81, 31);
 
         jCheckBox18.setBackground(new java.awt.Color(0, 0, 204));
         jCheckBox18.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
@@ -690,44 +680,13 @@ public class Kumite extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jCheckBox18);
-        jCheckBox18.setBounds(40, 250, 71, 33);
+        jCheckBox18.setBounds(40, 250, 81, 31);
 
         JL_Fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKumite/Fondo.png"))); // NOI18N
         JL_Fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(JL_Fondo);
         JL_Fondo.setBounds(10, 10, 670, 490);
-
-        JM_Menu.setText("Menu");
-
-        JMI_ResetMatch.setText("Reset Match");
-        JM_Menu.add(JMI_ResetMatch);
-
-        JMI_ResetTime.setText("Reset Time");
-        JM_Menu.add(JMI_ResetTime);
-
-        JMI_ExtraTime.setText("Extra Time");
-        JM_Menu.add(JMI_ExtraTime);
-
-        JMI_60Seconds.setText("60 seconds");
-        JM_Menu.add(JMI_60Seconds);
-        JM_Menu.add(jSeparator3);
-
-        JMI_About.setText("About");
-        JM_Menu.add(JMI_About);
-        JM_Menu.add(jSeparator4);
-
-        JMI_Close.setText("Close");
-        JMI_Close.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMI_CloseActionPerformed(evt);
-            }
-        });
-        JM_Menu.add(JMI_Close);
-
-        JMB_BarraTareas.add(JM_Menu);
-
-        setJMenuBar(JMB_BarraTareas);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -736,11 +695,6 @@ public class Kumite extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_JB_CloseActionPerformed
-
-    private void JMI_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_CloseActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_JMI_CloseActionPerformed
 
     private void JB_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_StartActionPerformed
         // TODO add your handling code here:
@@ -933,14 +887,6 @@ public class Kumite extends javax.swing.JDialog {
     private javax.swing.JLabel JL_PuntajeAzul;
     private javax.swing.JLabel JL_PuntajeRojo;
     private javax.swing.JLabel JL_Tiempo;
-    private javax.swing.JMenuBar JMB_BarraTareas;
-    private javax.swing.JMenuItem JMI_60Seconds;
-    private javax.swing.JMenuItem JMI_About;
-    private javax.swing.JMenuItem JMI_Close;
-    private javax.swing.JMenuItem JMI_ExtraTime;
-    private javax.swing.JMenuItem JMI_ResetMatch;
-    private javax.swing.JMenuItem JMI_ResetTime;
-    private javax.swing.JMenu JM_Menu;
     private javax.swing.JPanel JP_60Seconds;
     private javax.swing.JPanel JP_Close;
     private javax.swing.JPanel JP_ResetMatch;
@@ -979,8 +925,6 @@ public class Kumite extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator4;
     // End of variables declaration//GEN-END:variables
 
 }
