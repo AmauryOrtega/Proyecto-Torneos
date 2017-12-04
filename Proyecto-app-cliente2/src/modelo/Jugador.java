@@ -67,4 +67,8 @@ public class Jugador {
         return "Jugador{" + nombre_completo + ", CC." + cedula + ", cinturon=" + cinturon + ", sexo=" + sexo + ", peso=" + peso + ", edad=" + edad + ", estatura=" + estatura + '}';
     }
 
+    public String toStringCorto() {
+        return nombre_completo + " CC." + cedula;
+    }
+
 }

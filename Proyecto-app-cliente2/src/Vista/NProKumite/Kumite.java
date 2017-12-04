@@ -357,7 +357,7 @@ public class Kumite extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Category 2");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(270, 430, 170, 32);
+        jLabel1.setBounds(270, 430, 170, 29);
 
         JB_WazaAriAzul.setText("Waza-ari");
         JB_WazaAriAzul.addActionListener(new java.awt.event.ActionListener() {
@@ -381,18 +381,18 @@ public class Kumite extends javax.swing.JDialog {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Category 1");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(270, 370, 170, 32);
+        jLabel4.setBounds(270, 370, 170, 29);
 
         JL_Tiempo.setFont(new java.awt.Font("Unispace", 1, 48)); // NOI18N
         JL_Tiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_Tiempo.setText("01:30");
         getContentPane().add(JL_Tiempo);
-        JL_Tiempo.setBounds(270, 160, 180, 62);
+        JL_Tiempo.setBounds(270, 160, 180, 58);
 
         JCB_SenshuAzul.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
         JCB_SenshuAzul.setText("Senshu");
         getContentPane().add(JCB_SenshuAzul);
-        JCB_SenshuAzul.setBounds(40, 200, 100, 33);
+        JCB_SenshuAzul.setBounds(40, 200, 100, 31);
 
         JCB_SenshuRojo.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
         JCB_SenshuRojo.setText("Senshu");
@@ -402,7 +402,7 @@ public class Kumite extends javax.swing.JDialog {
             }
         });
         getContentPane().add(JCB_SenshuRojo);
-        JCB_SenshuRojo.setBounds(550, 200, 87, 33);
+        JCB_SenshuRojo.setBounds(550, 200, 91, 31);
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -634,7 +634,7 @@ public class Kumite extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jCheckBox17);
-        jCheckBox17.setBounds(560, 250, 71, 33);
+        jCheckBox17.setBounds(560, 250, 81, 31);
 
         jCheckBox18.setFont(new java.awt.Font("Unispace", 0, 18)); // NOI18N
         jCheckBox18.setText("Kiken");
@@ -644,7 +644,7 @@ public class Kumite extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jCheckBox18);
-        jCheckBox18.setBounds(40, 250, 71, 33);
+        jCheckBox18.setBounds(40, 250, 81, 31);
 
         JL_Fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKumite/Fondo.png"))); // NOI18N

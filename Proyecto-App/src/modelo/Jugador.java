@@ -64,7 +64,11 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + nombre_completo + ", CC." + cedula + ", cinturon=" + cinturon + ", sexo=" + sexo + ", peso=" + peso + ", edad=" + edad + ", estatura=" + estatura + '}';
+        return nombre_completo + ", CC." + cedula + ", cinturon=" + cinturon + ", sexo=" + sexo + ", peso=" + peso + ", edad=" + edad + ", estatura=" + estatura;
+    }
+    
+    public String toStringCorto() {
+        return nombre_completo + " CC." + cedula;
     }
 
 }
