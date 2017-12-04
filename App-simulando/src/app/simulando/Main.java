@@ -63,7 +63,7 @@ public class Main {
             jugadores.add(
                     new Jugador(
                             generador.generateName(Gender.MALE).toString(),
-                            Double.toString(r.nextDouble()).substring(2, 12),
+                            Double.toString(r.nextDouble()).substring(2, 8),
                             "VERDE",
                             "M",
                             r.nextInt(90 - 60) + 60,
