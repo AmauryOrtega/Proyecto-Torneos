@@ -21,8 +21,8 @@ public class Torneo {
 
     private ArrayList<Partido> partidos;
 
-    private Torneo torneo_terceristas_1;
-    private Torneo torneo_terceristas_2;
+    public Torneo torneo_terceristas_1;
+    public Torneo torneo_terceristas_2;
 
     public Torneo(ArrayList<Jugador> jugadores, String cinturon, String sexo, String edad, String deporte, String peso) {
         this.jugadores = jugadores;
@@ -123,13 +123,26 @@ public class Torneo {
     }
 
     public ArrayList<Jugador> getTerceristas2() {
+//        ArrayList<Jugador> lista = new ArrayList<>();
+//        Jugador segundo = this.getPartidosActuales().get(0).getPerdedor();
+//        for (Partido partido : this.getPartidos()) {
+//            if (partido.getGanador().igual(segundo)) {
+//                lista.add(partido.getPerdedor());
+//            }
+//        }
+//        return lista;
+        Jugador jugador = this.getPartidosActuales().get(0).getJugadorB();
+        System.out.println("QUIENES PERDIERON CONTRA " + jugador);
         ArrayList<Jugador> lista = new ArrayList<>();
-        Jugador segundo = this.getPartidosActuales().get(0).getPerdedor();
         for (Partido partido : this.getPartidos()) {
-            if (partido.getGanador().igual(segundo)) {
-                lista.add(partido.getPerdedor());
+            if (partido.getId() != Partido.ID - 1) {
+                if (partido.getGanador().igual(jugador)) {
+                    lista.add(partido.getPerdedor());
+                }
             }
         }
+        // No puede volver a jugar el que quedo de segundo
+        lista.remove(this.getPartidosActuales().get(0).getJugadorA());
         return lista;
     }
 
@@ -160,25 +173,6 @@ public class Torneo {
         }
     }
 
-    public void iniciarMiniTorneo1() {
-        if (this.getGanador() != null) {
-            ArrayList<Jugador> terceristas = this.getTerceristas1();
-            this.torneo_terceristas_1 = new Torneo(terceristas, this.cinturon, this.sexo, this.edad, this.deporte, this.peso);
-        }
-    }
-
-    public ArrayList<Jugador> getTerceristas1() {
-        ArrayList<Jugador> lista = new ArrayList<>();
-        for (Partido partido : this.getPartidos()) {
-            if (partido.getGanador().igual(this.getGanador())) {
-                lista.add(partido.getPerdedor());
-            }
-        }
-        // No puede volver a jugar el que quedo de segundo
-        lista.remove(this.getPartidosActuales().get(0).getPerdedor());
-        return lista;
-    }
-
     public int numero_byes(int n_equipos) {
         if ((Math.log(n_equipos) / Math.log(2)) == (int) (Math.log(n_equipos) / Math.log(2))) {
             return 0;
@@ -188,13 +182,6 @@ public class Torneo {
                 i++;
             }
             return (int) Math.pow(2, i) - n_equipos;
-        }
-    }
-
-    public void iniciarMiniTorneo2() {
-        if (this.getGanador() != null) {
-            ArrayList<Jugador> terceristas = this.getTerceristas2();
-            this.torneo_terceristas_2 = new Torneo(terceristas, this.cinturon, this.sexo, this.edad, this.deporte, this.peso);
         }
     }
 

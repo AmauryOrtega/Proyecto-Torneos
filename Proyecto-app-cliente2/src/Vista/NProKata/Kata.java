@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista.NProKata;
 
 import java.awt.Dimension;
@@ -452,8 +447,6 @@ public class Kata extends javax.swing.JDialog {
     }
 
     private void JB_ResetTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ResetTimeActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
         minuto = Integer.parseInt(JTF_MatchTimeMinute.getText());
         segundo = Integer.parseInt(JTF_MatchTimeSeconds.getText());
         setTiempo(minuto, segundo);
@@ -462,26 +455,21 @@ public class Kata extends javax.swing.JDialog {
     }//GEN-LAST:event_JB_ResetTimeActionPerformed
 
     private void JB_ExtraTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ExtraTimeActionPerformed
-        // TODO add your handling code here:
         setTiempo(1, 0);
         this.timer.stop();
     }//GEN-LAST:event_JB_ExtraTimeActionPerformed
 
     private void JB_ResetMatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ResetMatchActionPerformed
-        // TODO add your handling code here:
         this.dispose();
         Kata kata = new Kata((Frame) this.getParent(), true, this.partido);
         kata.setVisible(true);
     }//GEN-LAST:event_JB_ResetMatchActionPerformed
 
     private void JB_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CloseActionPerformed
-        
         this.dispose();
     }//GEN-LAST:event_JB_CloseActionPerformed
 
     private void JB_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_StartActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
         if (JB_Start.getText().equalsIgnoreCase("start")) {
             this.timer.start();
             JB_Start.setText("Stop");
@@ -492,7 +480,6 @@ public class Kata extends javax.swing.JDialog {
     }//GEN-LAST:event_JB_StartActionPerformed
 
     private void JRB_3RefereesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_3RefereesActionPerformed
-        // TODO add your handling code here:
         JRB_4Azul.setEnabled(false);
         JRB_5Azul.setEnabled(false);
         JRB_4Rojo.setEnabled(false);
@@ -501,7 +488,6 @@ public class Kata extends javax.swing.JDialog {
     }//GEN-LAST:event_JRB_3RefereesActionPerformed
 
     private void JRB_5RefereesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_5RefereesActionPerformed
-        // TODO add your handling code here:
         JRB_4Azul.setEnabled(true);
         JRB_5Azul.setEnabled(true);
         JRB_4Rojo.setEnabled(true);
@@ -509,60 +495,50 @@ public class Kata extends javax.swing.JDialog {
     }//GEN-LAST:event_JRB_5RefereesActionPerformed
 
     private void JRB_1RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_1RojoActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_4Azul.setSelected(true);
     }//GEN-LAST:event_JRB_1RojoActionPerformed
 
     private void JRB_2RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_2RojoActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_3Azul.setSelected(true);
     }//GEN-LAST:event_JRB_2RojoActionPerformed
 
     private void JRB_3RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_3RojoActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_2Azul.setSelected(true);
     }//GEN-LAST:event_JRB_3RojoActionPerformed
 
     private void JRB_4RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_4RojoActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_1Azul.setSelected(true);
     }//GEN-LAST:event_JRB_4RojoActionPerformed
 
     private void JRB_5RojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_5RojoActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
     }//GEN-LAST:event_JRB_5RojoActionPerformed
 
     private void JRB_1AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_1AzulActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_4Rojo.setSelected(true);
     }//GEN-LAST:event_JRB_1AzulActionPerformed
 
     private void JRB_2AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_2AzulActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_3Rojo.setSelected(true);
     }//GEN-LAST:event_JRB_2AzulActionPerformed
 
     private void JRB_3AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_3AzulActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_2Rojo.setSelected(true);
     }//GEN-LAST:event_JRB_3AzulActionPerformed
 
     private void JRB_4AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_4AzulActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_1Rojo.setSelected(true);
     }//GEN-LAST:event_JRB_4AzulActionPerformed
 
     private void JRB_5AzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRB_5AzulActionPerformed
-        // TODO add your handling code here:
         setDisabledAll();
         JRB_4Rojo.setSelected(true);
     }//GEN-LAST:event_JRB_5AzulActionPerformed
@@ -589,17 +565,7 @@ public class Kata extends javax.swing.JDialog {
         this.segundo = segundo;
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-
- /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
