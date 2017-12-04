@@ -2,7 +2,6 @@ package Vista.NProKumite;
 
 import Vista.Principal;
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,6 +34,8 @@ public class Kumite extends javax.swing.JDialog {
         this.puntosRojo = 0;
         this.minuto = 1;
         this.segundo = 30;
+        this.JL_JugadorA.setText(partido.getJugadorA().getNombre_completo());
+        this.JL_JugadorB.setText(partido.getJugadorB().getNombre_completo());
 
         timeFormatter = new DecimalFormat("00");
 
@@ -128,6 +129,8 @@ public class Kumite extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
         jCheckBox17 = new javax.swing.JCheckBox();
         jCheckBox18 = new javax.swing.JCheckBox();
+        JL_JugadorA = new javax.swing.JLabel();
+        JL_JugadorB = new javax.swing.JLabel();
         JL_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -671,6 +674,18 @@ public class Kumite extends javax.swing.JDialog {
         getContentPane().add(jCheckBox18);
         jCheckBox18.setBounds(40, 250, 81, 31);
 
+        JL_JugadorA.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JL_JugadorA.setForeground(new java.awt.Color(255, 255, 255));
+        JL_JugadorA.setText("Jugador A");
+        getContentPane().add(JL_JugadorA);
+        JL_JugadorA.setBounds(40, 30, 130, 17);
+
+        JL_JugadorB.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JL_JugadorB.setForeground(new java.awt.Color(255, 255, 255));
+        JL_JugadorB.setText("Jugador B");
+        getContentPane().add(JL_JugadorB);
+        JL_JugadorB.setBounds(520, 30, 130, 17);
+
         JL_Fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NProKumite/Fondo.png"))); // NOI18N
         JL_Fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -849,6 +864,8 @@ public class Kumite extends javax.swing.JDialog {
     private javax.swing.JCheckBox JCB_SenshuAzul;
     private javax.swing.JCheckBox JCB_SenshuRojo;
     private javax.swing.JLabel JL_Fondo;
+    private javax.swing.JLabel JL_JugadorA;
+    private javax.swing.JLabel JL_JugadorB;
     private javax.swing.JLabel JL_PuntajeAzul;
     private javax.swing.JLabel JL_PuntajeRojo;
     private javax.swing.JLabel JL_Tiempo;

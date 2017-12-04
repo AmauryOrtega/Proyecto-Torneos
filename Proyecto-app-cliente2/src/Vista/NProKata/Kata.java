@@ -466,6 +466,22 @@ public class Kata extends javax.swing.JDialog {
     }//GEN-LAST:event_JB_ResetMatchActionPerformed
 
     private void JB_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CloseActionPerformed
+        int puntajeA = 0;
+        int puntajeB = 0;
+        if(JRB_1Azul.isSelected()){puntajeB += 1;}
+        if(JRB_2Azul.isSelected()){puntajeB += 1;}
+        if(JRB_3Azul.isSelected()){puntajeB += 1;}
+        if(JRB_4Azul.isSelected()){puntajeB += 1;}
+        if(JRB_5Azul.isSelected()){puntajeB += 1;}
+        
+        if(JRB_1Rojo.isSelected()){puntajeA += 1;}
+        if(JRB_2Rojo.isSelected()){puntajeA += 1;}
+        if(JRB_3Rojo.isSelected()){puntajeA += 1;}
+        if(JRB_4Rojo.isSelected()){puntajeA += 1;}
+        if(JRB_5Rojo.isSelected()){puntajeA += 1;}
+        
+        System.out.println("puintaje A " + puntajeA);
+        System.out.println("puintaje B " + puntajeB);
         this.dispose();
     }//GEN-LAST:event_JB_CloseActionPerformed
 

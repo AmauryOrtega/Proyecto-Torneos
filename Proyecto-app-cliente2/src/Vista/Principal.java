@@ -1,5 +1,6 @@
 package Vista;
 
+import Vista.NProKata.Kata;
 import Vista.NProKumite.Kumite;
 import com.google.gson.Gson;
 import java.awt.Dimension;
@@ -50,8 +51,13 @@ public class Principal extends javax.swing.JFrame {
                             break;
                         }
                     }
-                    Kumite nueva_ventana = new Kumite(null, true, partido);
-                    nueva_ventana.setVisible(true);
+                    if(torneo.getDeporte().equals("KUMITE")){
+                        Kumite nueva_ventana = new Kumite(null, true, partido);
+                        nueva_ventana.setVisible(true);
+                    }else if(torneo.getDeporte().equals("KATA")){
+                        Kata nueva_ventana = new Kata(null, true, partido);
+                        nueva_ventana.setVisible(true);
+                    }
                     // Actualizar .json
                     System.out.println(archivo);
                     Gson gson = new Gson();
