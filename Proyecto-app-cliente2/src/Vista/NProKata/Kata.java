@@ -488,6 +488,8 @@ public class Kata extends javax.swing.JDialog {
         } else if (JRB_5Rojo.isSelected()) {
             definirGanador(0, 5);
         }
+        
+        this.dispose();
     }//GEN-LAST:event_JB_CloseActionPerformed
 
     public void definirGanador(int puntosAzul, int puntosRojo) {
