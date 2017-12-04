@@ -498,7 +498,7 @@ public class Kata extends javax.swing.JDialog {
             this.dispose();
         } else if (puntosAzul < puntosRojo) {
             JOptionPane.showMessageDialog(rootPane, "El ganador es el Jugador Rojo");
-            partido.setGanador(partido.getJugadorA());
+            partido.setGanador(partido.getJugadorB());
             this.dispose();
         }
         if (puntosAzul == puntosRojo) {
