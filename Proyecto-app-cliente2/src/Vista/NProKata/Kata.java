@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -466,24 +467,44 @@ public class Kata extends javax.swing.JDialog {
     }//GEN-LAST:event_JB_ResetMatchActionPerformed
 
     private void JB_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CloseActionPerformed
-        int puntajeA = 0;
-        int puntajeB = 0;
-        if(JRB_1Azul.isSelected()){puntajeB += 1;}
-        if(JRB_2Azul.isSelected()){puntajeB += 1;}
-        if(JRB_3Azul.isSelected()){puntajeB += 1;}
-        if(JRB_4Azul.isSelected()){puntajeB += 1;}
-        if(JRB_5Azul.isSelected()){puntajeB += 1;}
-        
-        if(JRB_1Rojo.isSelected()){puntajeA += 1;}
-        if(JRB_2Rojo.isSelected()){puntajeA += 1;}
-        if(JRB_3Rojo.isSelected()){puntajeA += 1;}
-        if(JRB_4Rojo.isSelected()){puntajeA += 1;}
-        if(JRB_5Rojo.isSelected()){puntajeA += 1;}
-        
-        System.out.println("puintaje A " + puntajeA);
-        System.out.println("puintaje B " + puntajeB);
-        this.dispose();
+        if (JRB_1Azul.isSelected()) {
+            definirGanador(1, 4);
+        } else if (JRB_2Azul.isSelected()) {
+            definirGanador(2, 3);
+        } else if (JRB_3Azul.isSelected()) {
+            definirGanador(3, 2);
+        } else if (JRB_4Azul.isSelected()) {
+            definirGanador(4, 1);
+        } else if (JRB_5Azul.isSelected()) {
+            definirGanador(5, 0);
+        } else if (JRB_1Rojo.isSelected()) {
+            definirGanador(4, 1);
+        } else if (JRB_2Rojo.isSelected()) {
+            definirGanador(3, 2);
+        } else if (JRB_3Rojo.isSelected()) {
+            definirGanador(2, 3);
+        } else if (JRB_4Rojo.isSelected()) {
+            definirGanador(1, 4);
+        } else if (JRB_5Rojo.isSelected()) {
+            definirGanador(0, 5);
+        }
     }//GEN-LAST:event_JB_CloseActionPerformed
+
+    public void definirGanador(int puntosAzul, int puntosRojo) {
+        partido.setPuntaje(puntosAzul, puntosRojo);
+        if (puntosAzul > puntosRojo) {
+            partido.setGanador(partido.getJugadorA());
+            JOptionPane.showMessageDialog(rootPane, "El ganador es el Jugador Azul");
+            this.dispose();
+        } else if (puntosAzul < puntosRojo) {
+            JOptionPane.showMessageDialog(rootPane, "El ganador es el Jugador Rojo");
+            partido.setGanador(partido.getJugadorA());
+            this.dispose();
+        }
+        if (puntosAzul == puntosRojo) {
+            JOptionPane.showMessageDialog(rootPane, "Necesita establecer un puntaje");
+        }
+    }
 
     private void JB_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_StartActionPerformed
         if (JB_Start.getText().equalsIgnoreCase("start")) {
