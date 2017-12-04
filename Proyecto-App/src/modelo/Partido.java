@@ -81,8 +81,8 @@ public class Partido {
 
     @Override
     public String toString() {
-        return "Partido#" + this.id + "{[" + ronda + "]" + jugadorA.getNombre_completo()
-                + " CC." + jugadorA.getCedula() + "(" + puntajeA + ") - " + jugadorB.getNombre_completo()
-                + " CC." + jugadorB.getCedula() + "(" + puntajeB + ")" + " => " + this.getGanador() + '}';
+        return "Partido#" + this.id + " Ronda[" + ronda + "] ("
+                + jugadorA.toStringCorto() + ") - (" + jugadorB.toStringCorto()
+                + ") => " + this.getGanador().toStringCorto();
     }
 }

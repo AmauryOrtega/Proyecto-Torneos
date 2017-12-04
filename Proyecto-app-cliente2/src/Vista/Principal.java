@@ -1,5 +1,6 @@
 package Vista;
 
+import Vista.NProKata.Kata;
 import Vista.NProKumite.Kumite;
 import com.google.gson.Gson;
 import java.awt.Dimension;
@@ -11,8 +12,14 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import modelo.Jugador;
 import modelo.Partido;
 import modelo.Torneo;
 
@@ -22,6 +29,7 @@ public class Principal extends javax.swing.JFrame {
     private String archivo;
 
     public Principal() {
+        super("Ventana principal");
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
@@ -36,7 +44,6 @@ public class Principal extends javax.swing.JFrame {
                 int row = jTable1.rowAtPoint(evt.getPoint());
                 int col = jTable1.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
-                    System.out.println();
                     Partido partido = null;
                     for (Partido i : torneo.getPartidos()) {
                         if (i.getId() == (Integer) jTable1.getModel().getValueAt(row, 0)) {
@@ -44,9 +51,13 @@ public class Principal extends javax.swing.JFrame {
                             break;
                         }
                     }
-                    Kumite nueva_ventana = new Kumite(null, true, partido);
-                    nueva_ventana.setVisible(true);
-                    actualizar();
+                    if(torneo.getDeporte().equals("KUMITE")){
+                        Kumite nueva_ventana = new Kumite(null, true, partido);
+                        nueva_ventana.setVisible(true);
+                    }else if(torneo.getDeporte().equals("KATA")){
+                        Kata nueva_ventana = new Kata(null, true, partido);
+                        nueva_ventana.setVisible(true);
+                    }
                     // Actualizar .json
                     System.out.println(archivo);
                     Gson gson = new Gson();
@@ -71,6 +82,18 @@ public class Principal extends javax.swing.JFrame {
                             JCB_Ronda.addItem(Integer.toString(i));
                         }
                         JCB_Ronda.setSelectedIndex(torneo.getRonda());
+                        if (torneo.getPartidosActuales().size() == 1) {
+                            JB_Torneos_terceristas.setEnabled(true);
+                        }
+                        // Actualizar .json
+                        System.out.println(archivo);
+                        gson = new Gson();
+                        json = gson.toJson(torneo);
+                        try (PrintWriter out = new PrintWriter(archivo)) {
+                            out.println(json);
+                        } catch (FileNotFoundException ex) {
+                            System.out.println("[ERROR] Guardando archivo");
+                        }
                     }
                     actualizar();
                 }
@@ -95,6 +118,7 @@ public class Principal extends javax.swing.JFrame {
         JCB_Ronda = new javax.swing.JComboBox<>();
         JL_Ronda = new javax.swing.JLabel();
         JB_Byes = new javax.swing.JButton();
+        JB_Torneos_terceristas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -158,6 +182,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        JB_Torneos_terceristas.setText("Torneos tercer puesto");
+        JB_Torneos_terceristas.setEnabled(false);
+        JB_Torneos_terceristas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_Torneos_terceristasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,6 +208,8 @@ public class Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JCB_Ronda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JB_Torneos_terceristas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JB_Byes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JB_Jugadores)))
@@ -193,7 +227,8 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(JCB_Ronda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JL_Ronda)
                     .addComponent(JB_Jugadores)
-                    .addComponent(JB_Byes))
+                    .addComponent(JB_Byes)
+                    .addComponent(JB_Torneos_terceristas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -217,7 +252,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_ByesActionPerformed
 
     private void JB_Cargar_jsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Cargar_jsonActionPerformed
-        JFileChooser fileChooser = new JFileChooser("./Torneos_json");
+        JFileChooser fileChooser = new JFileChooser("../Torneos_json");
         int seleccion = fileChooser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             try {
@@ -230,8 +265,8 @@ public class Principal extends javax.swing.JFrame {
                 }
                 this.JCB_Ronda.setSelectedIndex(torneo.getRonda());
                 this.JL_Torneo_actual.setText("Torneo " + this.torneo.getDeporte() + ", " + this.torneo.getSexo() + ", " + this.torneo.getPeso() + " Kg Y " + this.torneo.getCinturon());
-                actualizar();
                 Partido.ID = torneo.getPartidos().size() + 1;
+                actualizar();
             } catch (IOException ex) {
                 System.out.println("[ERROR] Error leyendo archivo json");
             }
@@ -244,23 +279,67 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JCB_RondaActionPerformed
 
+    private void JB_Torneos_terceristasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_Torneos_terceristasActionPerformed
+        // Momento de hacer torneos terceristas
+        ArrayList<Jugador> terceristas1 = new ArrayList<>();
+        ArrayList<Jugador> terceristas2 = new ArrayList<>();
+        for (Partido partido : torneo.getPartidos()) {
+            if (partido.getGanador() != null && partido.getGanador().igual(torneo.getPartidosActuales().get(0).getJugadorA())) {
+                terceristas1.add(partido.getPerdedor());
+            }
+            if (partido.getGanador() != null && partido.getGanador().igual(torneo.getPartidosActuales().get(0).getJugadorB())) {
+                terceristas2.add(partido.getPerdedor());
+            }
+        }
+        terceristas1.forEach(System.out::println);
+        System.out.println("x");
+        terceristas2.forEach(System.out::println);
+        torneo.torneo_terceristas_1 = new Torneo(terceristas1, torneo.getCinturon(), torneo.getSexo(), torneo.getEdad(), torneo.getDeporte(), torneo.getPeso());
+        torneo.torneo_terceristas_2 = new Torneo(terceristas2, torneo.getCinturon(), torneo.getSexo(), torneo.getEdad(), torneo.getDeporte(), torneo.getPeso());
+        String json;
+        Gson gson = new Gson();
+        JOptionPane.showMessageDialog(null, "Guardando primer mini torneo", "Primer mini torneo", JOptionPane.INFORMATION_MESSAGE);
+        JFileChooser fileChooser = new JFileChooser("../Torneos_json");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos JSON", "json"));
+        if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try (PrintWriter out = new PrintWriter(fileChooser.getCurrentDirectory() + "/" + fileChooser.getSelectedFile().getName() + ".json")) {
+                json = gson.toJson(torneo.getTorneo_terceristas_1());
+                out.println(json);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Guardando segundo mini torneo", "Primer mini torneo", JOptionPane.INFORMATION_MESSAGE);
+        fileChooser = new JFileChooser("../Torneos_json");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos JSON", "json"));
+        if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try (PrintWriter out = new PrintWriter(fileChooser.getCurrentDirectory() + "/" + fileChooser.getSelectedFile().getName() + ".json")) {
+                json = gson.toJson(torneo.getTorneo_terceristas_2());
+                out.println(json);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_JB_Torneos_terceristasActionPerformed
+
     public void actualizar() {
+        System.out.println("Actualizando tabla");
         String col[] = {"ID Partido", "EquipoA", "EquipoB", "Ganador"};
         DefaultTableModel tableModel = new DefaultTableModel(col, 0);
         for (Partido partido : torneo.getPartido(this.JCB_Ronda.getSelectedIndex())) {
             if (partido.getGanador() == null) {
                 Object[] objeto = {
                     partido.getId(),
-                    partido.getJugadorA().getNombre_completo() + "(" + partido.getPuntajeA() + ")",
-                    partido.getJugadorB().getNombre_completo() + "(" + partido.getPuntajeB() + ")",
+                    partido.getJugadorA().getNombre_completo(),
+                    partido.getJugadorB().getNombre_completo(),
                     partido.getGanador()
                 };
                 tableModel.addRow(objeto);
             } else {
                 Object[] objeto = {
                     partido.getId(),
-                    partido.getJugadorA().getNombre_completo() + "(" + partido.getPuntajeA() + ")",
-                    partido.getJugadorB().getNombre_completo() + "(" + partido.getPuntajeB() + ")",
+                    partido.getJugadorA().getNombre_completo(),
+                    partido.getJugadorB().getNombre_completo(),
                     partido.getGanador().getNombre_completo()
                 };
                 tableModel.addRow(objeto);
@@ -279,6 +358,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton JB_Byes;
     private javax.swing.JButton JB_Cargar_json;
     private javax.swing.JButton JB_Jugadores;
+    private javax.swing.JButton JB_Torneos_terceristas;
     private javax.swing.JComboBox<String> JCB_Ronda;
     private javax.swing.JLabel JL_Ronda;
     private javax.swing.JLabel JL_Torneo_actual;

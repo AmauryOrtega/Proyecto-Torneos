@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import static modelo.CSV.parseLine;
 import modelo.Jugador;
 import modelo.Torneo;
@@ -36,19 +37,21 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
         JL_Sexo = new javax.swing.JLabel();
         JL_Peso = new javax.swing.JLabel();
         JL_Deporte = new javax.swing.JLabel();
-        JTF_Cinturon = new javax.swing.JTextField();
-        JTF_Sexo = new javax.swing.JTextField();
         JTF_Peso = new javax.swing.JTextField();
-        JTF_Deporte = new javax.swing.JTextField();
         JB_Guardar = new javax.swing.JButton();
         JL_Edad = new javax.swing.JLabel();
         JTF_Edad = new javax.swing.JTextField();
+        JCB_Deporte = new javax.swing.JComboBox<>();
+        JCB_Cinturon = new javax.swing.JComboBox<>();
+        JL_Kgs = new javax.swing.JLabel();
+        JCB_Sexo = new javax.swing.JComboBox<>();
+        JL_Años = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nuevo torneo");
         setResizable(false);
 
-        JL_Titutlo.setFont(new java.awt.Font("Unispace", 0, 36)); // NOI18N
+        JL_Titutlo.setFont(new java.awt.Font("Unispace", 0, 24)); // NOI18N
         JL_Titutlo.setText("Nuevo torneo");
 
         JL_Cinturon.setText("Cinturon");
@@ -59,14 +62,7 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
 
         JL_Deporte.setText("Deporte");
 
-        JTF_Cinturon.setText("BLANCO");
-        JTF_Cinturon.setToolTipText("");
-
-        JTF_Sexo.setText("M");
-
         JTF_Peso.setText("80 a 100");
-
-        JTF_Deporte.setText("KATIA");
 
         JB_Guardar.setText("Guardar y seleccionar archivo excel");
         JB_Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -79,65 +75,81 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
 
         JTF_Edad.setText("15 a 20");
 
+        JCB_Deporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KUMITE", "KATA" }));
+
+        JCB_Cinturon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BLANCO", "BLANCO-AMARILLO", "AMARILLO", "AMARILLO-VERDE", "VERDE", "VERDE-AZUL", "AZUL", "AZUL-ROJO", "ROJO", "ROJO-NEGRO" }));
+
+        JL_Kgs.setText("Kg");
+
+        JCB_Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
+
+        JL_Años.setText("Años");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JB_Guardar)
-                .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JL_Cinturon)
-                            .addComponent(JL_Sexo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JTF_Sexo)
-                            .addComponent(JTF_Cinturon, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JL_Titutlo)
-                        .addGap(0, 10, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JL_Deporte)
                             .addComponent(JL_Peso)
                             .addComponent(JL_Edad))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JTF_Edad)
-                            .addComponent(JTF_Peso, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(JTF_Deporte))))
-                .addContainerGap())
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JCB_Deporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTF_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JL_Años))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JL_Cinturon)
+                            .addComponent(JL_Sexo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(JTF_Peso, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JL_Kgs)
+                                .addGap(14, 14, 14))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(JCB_Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JCB_Cinturon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(JB_Guardar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(JL_Titutlo)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(JL_Titutlo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JL_Cinturon)
-                    .addComponent(JTF_Cinturon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JCB_Cinturon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JL_Sexo)
-                    .addComponent(JTF_Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JCB_Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JL_Peso)
-                    .addComponent(JTF_Peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTF_Peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JL_Kgs))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JL_Deporte)
-                    .addComponent(JTF_Deporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JCB_Deporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JL_Edad)
-                    .addComponent(JTF_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTF_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JL_Años))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JB_Guardar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -147,7 +159,8 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_GuardarActionPerformed
-        JFileChooser fileChooser = new JFileChooser("./Torneos_csv");
+        JFileChooser fileChooser = new JFileChooser("../Torneos_csv");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos CSV", "csv"));
         int seleccion = fileChooser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             try {
@@ -168,15 +181,14 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
                     }
                 }
                 scanner.close();
-                Torneo torneo = new Torneo(jugadores, this.JTF_Cinturon.getText().toUpperCase(),
-                        this.JTF_Sexo.getText().toUpperCase(), this.JTF_Edad.getText().toUpperCase(),
-                        this.JTF_Deporte.getText().toUpperCase(), this.JTF_Peso.getText().toUpperCase()
+                Torneo torneo = new Torneo(jugadores, ((String) this.JCB_Cinturon.getSelectedItem()).toUpperCase(),
+                        ((String) this.JCB_Sexo.getSelectedItem()).toUpperCase(), this.JTF_Edad.getText().toUpperCase(),
+                        ((String) this.JCB_Deporte.getSelectedItem()).toUpperCase(), this.JTF_Peso.getText().toUpperCase()
                 );
                 Gson gson = new Gson();
                 String json = gson.toJson(torneo);
-                fileChooser = new JFileChooser("./Torneos_json");
-                seleccion = fileChooser.showSaveDialog(this);
-                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fileChooser = new JFileChooser("../Torneos_json");
+                if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
                     try (PrintWriter out = new PrintWriter(fileChooser.getCurrentDirectory() + "/" + fileChooser.getSelectedFile().getName() + ".json")) {
                         out.println(json);
                     }
@@ -190,16 +202,18 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB_Guardar;
+    private javax.swing.JComboBox<String> JCB_Cinturon;
+    private javax.swing.JComboBox<String> JCB_Deporte;
+    private javax.swing.JComboBox<String> JCB_Sexo;
+    private javax.swing.JLabel JL_Años;
     private javax.swing.JLabel JL_Cinturon;
     private javax.swing.JLabel JL_Deporte;
     private javax.swing.JLabel JL_Edad;
+    private javax.swing.JLabel JL_Kgs;
     private javax.swing.JLabel JL_Peso;
     private javax.swing.JLabel JL_Sexo;
     private javax.swing.JLabel JL_Titutlo;
-    private javax.swing.JTextField JTF_Cinturon;
-    private javax.swing.JTextField JTF_Deporte;
     private javax.swing.JTextField JTF_Edad;
     private javax.swing.JTextField JTF_Peso;
-    private javax.swing.JTextField JTF_Sexo;
     // End of variables declaration//GEN-END:variables
 }

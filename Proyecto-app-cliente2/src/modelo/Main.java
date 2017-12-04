@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
 import Vista.Principal;
@@ -13,15 +8,8 @@ import java.util.Scanner;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author aroc
- */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -30,93 +18,111 @@ public class Main {
         }
         Principal ventana = new Principal();
         ventana.setVisible(true);
-//        Kumite venta2 = new Kumite(null, true, null);
-//        venta2.setVisible(true);
-
-//        // Torneo principal
-//        Torneo torneo = new Torneo(persistencia(), "", "", "", "");
-//        System.out.println("\nJugadores [" + torneo.getJugadores_bak().size() + "]");
-//        System.out.println(torneo.getJugadores_bak());
-//
-//        System.out.println("\nExtras [" + torneo.getExtras().size() + "]");
-//        System.out.println(torneo.getExtras());
-//
-//        System.out.println("\nSimulando partidos");
-//        for (Partido partido : torneo.getPartidosActuales()) {
-//            Random r = new Random();
-//            if (r.nextBoolean()) {
-//                partido.setGanador(partido.getJugadorA());
-//            } else {
-//                partido.setGanador(partido.getJugadorB());
-//            }
+        
+//        int N_JUGADORES;
+//        // Lista de jugadores constantes
+//        ArrayList<Jugador> jugadores = new ArrayList<>();
+//        for (int i = 0; i < N_JUGADORES; i++) {
+//            jugadores.add(
+//                    new Jugador(
+//                            generador.generateName(Gender.MALE).toString(),
+//                            Double.toString(r.nextDouble()).substring(2, 12),
+//                            "VERDE",
+//                            "M",
+//                            r.nextInt(90 - 60) + 60,
+//                            r.nextInt(20 - 15) + 15,
+//                            r.nextInt(190 - 160) + 160
+//                    )
+//            );
 //        }
+//        // Creando torneo principal
+//        Torneo torneo = new Torneo((ArrayList<Jugador>) jugadores.clone(), "VERDE", "M", "15-20", "KUMITE", "60-90");
+//        System.out.println("\nJugadores [" + torneo.getJugadores_bak().size() + "]");
+//        torneo.getJugadores_bak().forEach(System.out::println);
+//        System.out.println("\nExtras [" + torneo.getExtras_bak().size() + "]");
+//        torneo.getExtras_bak().forEach(System.out::println);
 //
-//        System.out.println("\nJugaron");
-//        torneo.getPartidosActuales().forEach(System.out::println);
-//
+//        // Jugando partidos del torneo principal
 //        do {
-//            System.out.println("\nGenerando y simulando siguientes rondas");
-//            torneo.siguienteRonda();
-//            for (Partido partido : torneo.getPartidosActuales()) {
-//                Random r = new Random();
+//            System.out.println("\nRONDA " + torneo.getRonda());
+//            torneo.getPartidosActuales().forEach((partido) -> {
 //                if (r.nextBoolean()) {
 //                    partido.setGanador(partido.getJugadorA());
 //                } else {
 //                    partido.setGanador(partido.getJugadorB());
 //                }
-//            }
+//            });
 //            torneo.getPartidosActuales().forEach(System.out::println);
+//            torneo.siguienteRonda();
 //        } while (torneo.getGanador() == null);
 //
-//        System.out.println("\nGanador");
-//        System.out.println(torneo.getGanador());
-//        // Fin torneo principal
+//        // Torneos terceristas
+//        System.out.println("\n" + torneo.getTerceristas1().size() + " jugadores perdieron contra " + torneo.getGanador().toStringCorto());
+//        torneo.getTerceristas1().forEach(System.out::println);
+//        System.out.println("\n" + torneo.getTerceristas1().size() + " jugadores perdieron contra " + torneo.getPartidosActuales().get(0).getPerdedor().toStringCorto());
+//        torneo.getTerceristas2().forEach(System.out::println);
 //
-//        // Torneo terceristas
-//        System.out.println("\nTerceristas [" + torneo.getTerceristas().size() + "]");
-//        System.out.println(torneo.getTerceristas());
-//        torneo.iniciarMiniTorneo();
+//        // 1° Torneo tercerista
+//        System.out.println("\n1° Torneo terceristas [" + torneo.getTerceristas1().size() + "]");
+//        torneo.iniciarMiniTorneo1();
+//        System.out.println("\nJugadores [" + torneo.getTorneo_terceristas_1().getJugadores_bak().size() + "]");
+//        torneo.getTorneo_terceristas_1().getJugadores_bak().forEach(System.out::println);
+//        System.out.println("\nTerceristas Extras [" + torneo.getTorneo_terceristas_1().getExtras_bak().size() + "]");
+//        torneo.getTorneo_terceristas_1().getExtras_bak().forEach(System.out::println);
 //
-//        System.out.println("\nTerceristas Extras [" + torneo.getMini_torneo_tercerista().getExtras_bak().size() + "]");
-//        System.out.println(torneo.getMini_torneo_tercerista().getExtras_bak());
-//
-//        System.out.println("\nSimulando partidos de terceristas");
-//        for (Partido partido : torneo.getMini_torneo_tercerista().getPartidosActuales()) {
-//            Random r = new Random();
-//            if (r.nextBoolean()) {
-//                partido.setGanador(partido.getJugadorA());
-//            } else {
-//                partido.setGanador(partido.getJugadorB());
-//            }
-//        }
-//
-//        System.out.println("\nJugaron");
-//        torneo.getMini_torneo_tercerista().getPartidosActuales().forEach(System.out::println);
-//
+//        // Jugando partidos del 1° torneo terceristas
 //        do {
-//            System.out.println("\nGenerando y simulando siguientes rondas");
-//            torneo.getMini_torneo_tercerista().siguienteRonda();
-//            for (Partido partido : torneo.getMini_torneo_tercerista().getPartidosActuales()) {
-//                Random r = new Random();
+//            System.out.println("\nRONDA " + torneo.getTorneo_terceristas_1().getRonda());
+//            torneo.getTorneo_terceristas_1().getPartidosActuales().forEach((partido) -> {
 //                if (r.nextBoolean()) {
 //                    partido.setGanador(partido.getJugadorA());
 //                } else {
 //                    partido.setGanador(partido.getJugadorB());
 //                }
-//            }
-//            torneo.getMini_torneo_tercerista().getPartidosActuales().forEach(System.out::println);
-//        } while (torneo.getMini_torneo_tercerista().getGanador() == null);
+//            });
+//            torneo.getTorneo_terceristas_1().getPartidosActuales().forEach(System.out::println);
+//            torneo.getTorneo_terceristas_1().siguienteRonda();
+//        } while (torneo.getTorneo_terceristas_1().getGanador() == null);
 //
-//        System.out.println("\nGanador Terceristas");
-//        System.out.println(torneo.getMini_torneo_tercerista().getGanador());
-//        // Fin Torneo terceristas
+//        // 2° Torneo tercerista
+//        System.out.println("\n2° Torneo terceristas [" + torneo.getTerceristas2().size() + "]");
+//        torneo.iniciarMiniTorneo2();
+//        System.out.println("\nJugadores [" + torneo.getTorneo_terceristas_2().getJugadores_bak().size() + "]");
+//        torneo.getTorneo_terceristas_2().getJugadores_bak().forEach(System.out::println);
+//        System.out.println("\nTerceristas Extras [" + torneo.getTorneo_terceristas_2().getExtras_bak().size() + "]");
+//        torneo.getTorneo_terceristas_2().getExtras_bak().forEach(System.out::println);
 //
-//        // Final
-//        System.out.println("\nGANADORES");
-//        ArrayList<Jugador> ganadores = torneo.getGanadores();
-//        for (int i = 0; i < 3; i++) {
-//            System.out.println((i + 1) + ". " + ganadores.get(i));
+//        // Jugando partidos del 2° torneo terceristas
+//        do {
+//            System.out.println("\nRONDA " + torneo.getTorneo_terceristas_2().getRonda());
+//            torneo.getTorneo_terceristas_2().getPartidosActuales().forEach((partido) -> {
+//                if (r.nextBoolean()) {
+//                    partido.setGanador(partido.getJugadorA());
+//                } else {
+//                    partido.setGanador(partido.getJugadorB());
+//                }
+//            });
+//            torneo.getTorneo_terceristas_2().getPartidosActuales().forEach(System.out::println);
+//            torneo.getTorneo_terceristas_2().siguienteRonda();
+//        } while (torneo.getTorneo_terceristas_2().getGanador() == null);
+//
+//        // Definiendo el mejor tercerista
+//        Partido partido_terceristas = new Partido(torneo.getTorneo_terceristas_1().getGanador(), torneo.getTorneo_terceristas_2().getGanador(), 0);
+//        if (r.nextBoolean()) {
+//            partido_terceristas.setGanador(partido_terceristas.getJugadorA());
+//        } else {
+//            partido_terceristas.setGanador(partido_terceristas.getJugadorB());
 //        }
+//        System.out.println("\nEnfrentamiento entre los ganadores de mini torneos");
+//        System.out.println(partido_terceristas);
+//
+//        // Ganadores
+//        System.out.println("\nGANADORES");
+//        System.out.println("1. " + torneo.getGanador());
+//        System.out.println("2. " + torneo.getPartidosActuales().get(0).getPerdedor());
+//        System.out.println("3.1. " + partido_terceristas.getGanador());
+//        System.out.println("3.2. " + partido_terceristas.getPerdedor());
+
     }
 
     public static ArrayList<Jugador> persistencia() {

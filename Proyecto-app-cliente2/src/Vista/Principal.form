@@ -39,6 +39,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JCB_Ronda" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="JB_Torneos_terceristas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="JB_Byes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JB_Jugadores" min="-2" max="-2" attributes="0"/>
@@ -62,6 +64,7 @@
                   <Component id="JL_Ronda" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JB_Jugadores" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JB_Byes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JB_Torneos_terceristas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="275" max="-2" attributes="0"/>
@@ -169,6 +172,15 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JB_ByesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="JB_Torneos_terceristas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Torneos tercer puesto"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JB_Torneos_terceristasActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

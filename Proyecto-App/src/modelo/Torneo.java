@@ -21,7 +21,8 @@ public class Torneo {
 
     private ArrayList<Partido> partidos;
 
-    private Torneo mini_torneo_tercerista;
+    private Torneo torneo_terceristas_1;
+    private Torneo torneo_terceristas_2;
 
     public Torneo(ArrayList<Jugador> jugadores, String cinturon, String sexo, String edad, String deporte, String peso) {
         this.jugadores = jugadores;
@@ -30,7 +31,8 @@ public class Torneo {
         this.extras = new ArrayList<>();
         // Escogiendo extras de Extras
         Random r = new Random();
-        for (int i = 0; i < this.numero_byes(this.jugadores.size()); i++) {
+        int n_equipos = this.jugadores.size();
+        for (int i = 0; i < this.numero_byes(n_equipos); i++) {
             this.extras.add(this.jugadores.remove(r.nextInt(this.jugadores.size())));
         }
         this.extras_bak = (ArrayList<Jugador>) this.extras.clone();
@@ -79,32 +81,22 @@ public class Torneo {
         return jugadores_bak;
     }
 
-    public void setRonda(int ronda) {
-        this.ronda = ronda;
-    }
-
-    public ArrayList<Jugador> getJugadores() {
-        return jugadores;
-    }
-
-    public void setJugadores(ArrayList<Jugador> jugadores) {
-        this.jugadores = jugadores;
+    public ArrayList<Jugador> getExtras_bak() {
+        return extras_bak;
     }
 
     public ArrayList<Partido> getPartidos() {
         return partidos;
     }
 
-    public void setPartidos(ArrayList<Partido> partidos) {
-        this.partidos = partidos;
-    }
-
-    public ArrayList<Jugador> getExtras() {
-        return extras;
-    }
-
-    public void setExtras(ArrayList<Jugador> extras) {
-        this.extras = extras;
+    public ArrayList<Partido> getPartido(int ronda) {
+        ArrayList<Partido> lista = new ArrayList<>();
+        for (Partido partido : this.partidos) {
+            if (partido.getRonda() == ronda) {
+                lista.add(partido);
+            }
+        }
+        return lista;
     }
 
     public ArrayList<Partido> getPartidosActuales() {
@@ -118,39 +110,40 @@ public class Torneo {
         return lista;
     }
 
-    public ArrayList<Partido> getPartido(int ronda) {
-        ArrayList<Partido> lista = new ArrayList<>();
-        for (Partido partido : this.partidos) {
-            if (partido.getRonda() == ronda) {
-                lista.add(partido);
+    public Torneo getTorneo_terceristas_1() {
+        return torneo_terceristas_1;
+    }
+
+    public Jugador getGanador() {
+        if (this.getPartidosActuales().size() == 1) {
+            return this.getPartidosActuales().get(0).getGanador();
+        } else {
+            return null;
+        }
+    }
+
+    public ArrayList<Jugador> getTerceristas2() {
+        ArrayList<Jugador> lista = new ArrayList<>();
+        Jugador segundo = this.getPartidosActuales().get(0).getPerdedor();
+        for (Partido partido : this.getPartidos()) {
+            if (partido.getGanador().igual(segundo)) {
+                lista.add(partido.getPerdedor());
             }
         }
         return lista;
     }
 
-    public ArrayList<Jugador> getExtras_bak() {
-        return extras_bak;
-    }
-
-    public Torneo getMini_torneo_tercerista() {
-        return mini_torneo_tercerista;
-    }
-
-    public void setMini_torneo_tercerista(Torneo mini_torneo_tercerista) {
-        this.mini_torneo_tercerista = mini_torneo_tercerista;
-    }
-
     public void siguienteRonda() {
         ArrayList<Jugador> ganadores = new ArrayList<>();
         // Llenando ganadores
-        for (Partido partido : this.getPartidosActuales()) {
+        this.getPartidosActuales().forEach((partido) -> {
             ganadores.add(partido.getGanador());
-        }
+        });
         if (this.ronda == 0) {
             // Solo si hay numero_byes, los agrega
-            for (Jugador bye : this.getExtras()) {
+            this.extras.forEach((bye) -> {
                 ganadores.add(bye);
-            }
+            });
         }
         // Creando partidos con ganadores de la ronda anterior
         if (ganadores.size() != 1) {
@@ -167,14 +160,26 @@ public class Torneo {
         }
     }
 
-    public void iniciarMiniTorneo() {
+    public void iniciarMiniTorneo1() {
         if (this.getGanador() != null) {
-            ArrayList<Jugador> terceristas = this.getTerceristas();
-            this.mini_torneo_tercerista = new Torneo(terceristas, this.cinturon, this.sexo, this.edad, this.deporte, this.peso);
+            ArrayList<Jugador> terceristas = this.getTerceristas1();
+            this.torneo_terceristas_1 = new Torneo(terceristas, this.cinturon, this.sexo, this.edad, this.deporte, this.peso);
         }
     }
 
-    private int numero_byes(int n_equipos) {
+    public ArrayList<Jugador> getTerceristas1() {
+        ArrayList<Jugador> lista = new ArrayList<>();
+        for (Partido partido : this.getPartidos()) {
+            if (partido.getGanador().igual(this.getGanador())) {
+                lista.add(partido.getPerdedor());
+            }
+        }
+        // No puede volver a jugar el que quedo de segundo
+        lista.remove(this.getPartidosActuales().get(0).getPerdedor());
+        return lista;
+    }
+
+    public int numero_byes(int n_equipos) {
         if ((Math.log(n_equipos) / Math.log(2)) == (int) (Math.log(n_equipos) / Math.log(2))) {
             return 0;
         } else {
@@ -186,46 +191,15 @@ public class Torneo {
         }
     }
 
-    public Jugador getGanador() {
-        if (this.getPartidosActuales().size() == 1) {
-            return this.getPartidosActuales().get(0).getGanador();
-        } else {
-            return null;
+    public void iniciarMiniTorneo2() {
+        if (this.getGanador() != null) {
+            ArrayList<Jugador> terceristas = this.getTerceristas2();
+            this.torneo_terceristas_2 = new Torneo(terceristas, this.cinturon, this.sexo, this.edad, this.deporte, this.peso);
         }
     }
 
-    public ArrayList<Jugador> getGanadores() {
-        if (this.getGanador() == null) {
-            return null;
-        }
-        ArrayList<Jugador> finales = new ArrayList<>();
-        finales.add(0, this.getGanador());
-        finales.add(1, this.getPartidosActuales().get(0).getPerdedor());
-        finales.add(2, this.getTercero_1());
-        return finales;
-    }
-
-    public ArrayList<Jugador> getTerceristas() {
-        ArrayList<Jugador> lista = new ArrayList<>();
-//        this.getPartidos().stream().filter((partido) -> (partido.getGanador().equals(this.getGanador()))).forEachOrdered((partido) -> {
-//            lista.add(partido.getPerdedor());
-//        });
-        for (Partido partido : this.getPartidos()) {
-            if (partido.getGanador().equals(this.getGanador())) {
-                lista.add(partido.getPerdedor());
-            }
-        }
-        // No puede volver a jugar el que quedo de segundo
-        lista.remove(this.getPartidosActuales().get(0).getPerdedor());
-        return lista;
-    }
-
-    public Jugador getTercero_1() {
-        return this.getMini_torneo_tercerista().getGanador();
-    }
-
-    public Jugador getTercero_2() {
-        return this.getMini_torneo_tercerista().getGanador();
+    public Torneo getTorneo_terceristas_2() {
+        return torneo_terceristas_2;
     }
 
 }
