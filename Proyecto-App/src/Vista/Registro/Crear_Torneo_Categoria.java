@@ -39,10 +39,10 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
         JTF_Cinturon = new javax.swing.JTextField();
         JTF_Sexo = new javax.swing.JTextField();
         JTF_Peso = new javax.swing.JTextField();
-        JTF_Deporte = new javax.swing.JTextField();
         JB_Guardar = new javax.swing.JButton();
         JL_Edad = new javax.swing.JLabel();
         JTF_Edad = new javax.swing.JTextField();
+        JCB_Deporte = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nuevo torneo");
@@ -66,8 +66,6 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
 
         JTF_Peso.setText("80 a 100");
 
-        JTF_Deporte.setText("KATIA");
-
         JB_Guardar.setText("Guardar y seleccionar archivo excel");
         JB_Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +76,8 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
         JL_Edad.setText("Edad");
 
         JTF_Edad.setText("15 a 20");
+
+        JCB_Deporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KUMITE", "KATA" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +110,7 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(JTF_Edad)
                             .addComponent(JTF_Peso, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(JTF_Deporte))))
+                            .addComponent(JCB_Deporte, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -133,7 +133,7 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JL_Deporte)
-                    .addComponent(JTF_Deporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JCB_Deporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JL_Edad)
@@ -170,7 +170,7 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
                 scanner.close();
                 Torneo torneo = new Torneo(jugadores, this.JTF_Cinturon.getText().toUpperCase(),
                         this.JTF_Sexo.getText().toUpperCase(), this.JTF_Edad.getText().toUpperCase(),
-                        this.JTF_Deporte.getText().toUpperCase(), this.JTF_Peso.getText().toUpperCase()
+                        ((String) this.JCB_Deporte.getSelectedItem()).toUpperCase(), this.JTF_Peso.getText().toUpperCase()
                 );
                 Gson gson = new Gson();
                 String json = gson.toJson(torneo);
@@ -190,6 +190,7 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB_Guardar;
+    private javax.swing.JComboBox<String> JCB_Deporte;
     private javax.swing.JLabel JL_Cinturon;
     private javax.swing.JLabel JL_Deporte;
     private javax.swing.JLabel JL_Edad;
@@ -197,7 +198,6 @@ public class Crear_Torneo_Categoria extends javax.swing.JFrame {
     private javax.swing.JLabel JL_Sexo;
     private javax.swing.JLabel JL_Titutlo;
     private javax.swing.JTextField JTF_Cinturon;
-    private javax.swing.JTextField JTF_Deporte;
     private javax.swing.JTextField JTF_Edad;
     private javax.swing.JTextField JTF_Peso;
     private javax.swing.JTextField JTF_Sexo;
